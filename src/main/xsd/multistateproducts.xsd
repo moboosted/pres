@@ -1,0 +1,39 @@
+<!-- Author: Nehson Pillay, SilvermoonGroup -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+     Purchase order schema for Example.com.
+     Copyright 2000 Example.com. All rights reserved.
+    </xsd:documentation>
+  </xsd:annotation>
+ <xsd:element name="multiStateCatalogue" type="MultiStateCatalogue"/>
+  <xsd:element name="multiStateProduct" type="MultiStateProduct"/>
+ <xsd:element name="coverageProduct" type="CoverageProduct"/>
+
+  <xsd:complexType name="MultiStateCatalogue">
+   <xsd:sequence>
+    	<xsd:element name="multiStateProduct" type="MultiStateProduct" minOccurs="0" maxOccurs="unbounded" />
+     </xsd:sequence>
+   </xsd:complexType>
+   
+   <xsd:complexType name="MultiStateProduct">
+    <xsd:sequence>
+    	<xsd:element name="specId"   type="xsd:long" />
+    	<xsd:element name="specName"   type="xsd:string"/>
+    	<xsd:element name="kindId"   type="xsd:long"/>
+    	<xsd:element name="kindName"   type="xsd:string"/>
+    	
+    	<xsd:element name="coverageProduct" type="CoverageProduct" minOccurs="0" maxOccurs="unbounded"  />
+    </xsd:sequence>
+   </xsd:complexType>
+     <xsd:complexType name="CoverageProduct">
+    <xsd:sequence>
+    	<xsd:element name="specId"   type="xsd:long"/>
+    	<xsd:element name="specName"   type="xsd:string"/>
+    	<xsd:element name="kindId"   type="xsd:long"/>
+    	<xsd:element name="kindName"   type="xsd:string"/>
+    </xsd:sequence>
+   </xsd:complexType>
+
+</xsd:schema>

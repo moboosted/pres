@@ -1,0 +1,495 @@
+/*  -------------- Root elements -------------- */
+body {
+    color: #000000;
+    background: #ffffff;
+    font: 11px arial, tahoma, verdana, helvetica, sans-serif;
+    margin-top: 0;
+    margin-left: 0;
+}
+
+a, a:visited, a:hover, a:active {
+    color: inherit;
+}
+
+a, a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/*  -------------- Form elements -------------- */
+input,
+button {
+    vertical-align: middle;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    border: 1px solid #A7ACB0;
+}
+
+input.datefield {
+    width: 6em;
+}
+
+input.numeric {
+    text-align: right;
+}
+
+select {
+    font-size: 11px;
+    vertical-align: middle;
+    border: 1px solid #A7ACB0;
+}
+
+select.currencyCode {
+    margin-left: 3px;
+}
+
+/*  -------------- Miscellaneous -------------- */
+
+/* The spinner div and image */
+.spinner {
+    visibility: hidden;
+}
+
+.spinner img {
+    vertical-align: middle;
+}
+
+/* Highlights the fact that no results exist in a tablular display */
+tr.empty {
+    background-color: #FFFFBB;
+    text-align: center;
+}
+
+/* The title of every page */
+.pagetitle {
+    font-family: verdana, arial, tahoma, sans-serif;
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #666666;
+}
+
+.subtitle {
+    font-family: verdana, arial, tahoma, sans-serif;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #666666;
+}
+
+span.rpad {
+    padding-right: 2em;
+}
+
+/* 
+  ------------------------------------------------------
+  Styles under this line need cleaning up and commenting
+  ------------------------------------------------------
+*/
+.end {
+    font: normal 11px arial;
+    line-height: 21px;
+    z-index: 100;
+    background: url("../images/nav_bottom.jpg") no-repeat;
+    width: 145px;
+}
+
+/* table tags*/
+table {
+    width: 100%
+}
+
+table.structure {
+    background-color: #FFFFFF
+}
+
+/* td tags*/
+td {
+    vertical-align: top;
+    font-size: 11px;
+}
+
+div#error {
+    font-size: 11px;
+    font-weight: bold;
+    color: #CC0000;
+    background: #FFFFFF url("../images/icon_err.jpg") no-repeat left;
+    text-indent: 25px;
+    width: 100%;
+    line-height: 22px;
+    border: 1px solid #cc0000;
+}
+
+div#info {
+    font-size: 11px;
+    font-weight: bold;
+    color: #035EAF;
+    background: #FFFFFF url("../images/icon_info.jpg") no-repeat left;
+    text-indent: 25px;
+    width: 100%;
+    line-height: 22px;
+    border: 1px solid #035EAF;
+}
+
+td.fontsmalllight {
+    font-size: 10px;
+    font-weight: 500;
+    background-color: #F7F7F7;
+}
+
+td.fontsmallbold {
+    font-size: 10px;
+    font-weight: bold;
+    background-color: #F7F7F7;
+}
+
+td.hidden {
+    display: none;
+}
+
+td.input {
+    vertical-align: middle;
+    background-color: #EFEFEF;
+}
+
+/* "lightgrey" is actually blue, used as the style for table colomn headers*/
+td.lightgrey {
+    vertical-align: middle;
+    background-color: #D6DFEB;
+    font-weight: bold;
+    font-size: 11px;
+    font: arial, tahoma, verdana, geneva, sans-serif;
+}
+
+td.versions {
+    vertical-align: middle;
+    background-color: #FFFFFF;
+    font-weight: normal;
+    color: #999999;
+    font-size: 11px;
+    font: arial, tahoma, verdana, geneva, sans-serif;
+}
+
+td.agreement {
+    vertical-align: middle;
+    background-color: #EAEFF5;
+    font-weight: normal;
+    font-size: 11px;
+    font: arial, tahoma, verdana, geneva, sans-serif;
+}
+
+td.agreementExpand {
+    vertical-align: middle;
+    background-color: #6DA1CF;
+    text-align: center;
+    font-weight: normal;
+    font-size: 11px;
+    font: arial, tahoma, verdana, geneva, sans-serif;
+}
+
+td.agreementTitle {
+    vertical-align: middle;
+    background-color: #D5E4F2;
+    font-weight: bold;
+    font-size: 11px;
+    font: arial, tahoma, verdana, geneva, sans-serif;
+}
+
+td.lightgreybold {
+    vertical-align: middle;
+    background-color: #D6DFEB;
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 20px;
+    text-indent: 4px;
+    font: arial, tahoma, verdana, geneva, sans-serif;
+}
+
+td.mandatory {
+    background-color: #EEEEEE;
+    font-size: 11px;
+    vertical-align: middle;
+    color: #CC0000;
+}
+
+td.mandatory a {
+    color: #CC0000;
+    line-height: 18px;
+    display: block;
+}
+
+td.mandatory a:hover {
+    background-color: #CCCCCC;
+}
+
+td.mandatorySearch {
+    font-size: 11px;
+    vertical-align: middle;
+    color: #CC0000;
+    font-weight: bold;
+}
+
+td.title {
+    vertical-align: middle;
+    font: arial, tahoma, verdana, geneva, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    background-color: #F2F2F2;
+    line-height: 18px;
+}
+
+td.title a {
+    vertical-align: middle;
+    font: arial, tahoma, verdana, geneva, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    background-color: #F2F2F2;
+    line-height: 18px;
+    display: block;
+    color: #1468b2;
+}
+
+td.title a:hover {
+    color: #FFFFFF;
+    background-color: #CCCCCC;
+}
+
+label.groupHeading {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1468b2;
+    font-family: verdana, arial, tahoma, sans-serif;
+}
+
+label.groupHeading a:visited {
+    color: #1468b2;
+}
+
+td.contactHeading {
+    font-size: 16px;
+    font-weight: bold;
+    color: #035EAF;
+    font-family: verdana, arial, tahoma, sans-serif;
+    background-color: #F2F2F2;
+}
+
+td.contactHeadingSub {
+    color: #035EAF;
+    background-color: #F2F2F2;
+    vertical-align: middle;
+}
+
+td.contactSelection {
+    background-color: #D6DFEB;
+}
+
+th {
+    vertical-align: middle;
+    font-size: 11px;
+    font-weight: bold;
+    background-color: #D6DFEB;
+    padding: 2px;
+}
+
+th.order1 {
+    vertical-align: middle;
+    font-size: 11px;
+    font-weight: bold;
+    background: #D6DFEB url("../images/arrow_up.png") no-repeat left;
+}
+
+th.order2 {
+    vertical-align: middle;
+    font-size: 11px;
+    font-weight: bold;
+    background: #D6DFEB url("../images/arrow_down.png") no-repeat left;
+}
+
+th.hidden {
+    display: none;
+}
+
+tr {
+    vertical-align: top;
+}
+
+.mandatory {
+    background-color: #FFFFCC;
+    font-size: 11px;
+    vertical-align: middle;
+}
+
+.error {
+    background-color: #CC0000;
+    color: #FFFFFF;
+    font-size: 11px;
+    vertical-align: middle;
+}
+
+#header {
+    background: url("../images/header_bg_long.jpg") no-repeat center #FFFFFF;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 60px;
+}
+
+div#navigationWrapper {
+    font: verdana, arial;
+    background-color: #FFFFFF;
+    font-size: 11px;
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+
+div#bodyContentWrapper {
+    padding: 10px 10px 10px 10px;
+}
+
+div#findQuery {
+    border: 0 solid #035EAF;
+    background-color: #D6DFEB;
+}
+
+td.find {
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+div#text {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    height: 30px;
+    padding-top: 10px;
+}
+
+div#FooterMain {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    text-align: right;
+    line-height: 22px;
+    width: 100%;
+    background-color: #F2F2F2;
+    text-indent: 5px;
+    color: #666666;
+    border: 1px solid #CCCCCC;
+}
+
+.sectionDivide {
+    height: 7px;
+    border-bottom: 5px solid #035EAF;
+}
+
+.shadetabs {
+    padding: 1px 0;
+    margin-left: 0;
+    margin-top: 1px;
+    margin-bottom: 0;
+    font: bold 11px arial;
+    list-style-type: none;
+    text-align: left;
+    height: 26px;
+}
+
+.shadetabs li {
+    display: inline;
+}
+
+.shadetabs li a {
+    text-decoration: none;
+    padding: 5px 9px 7px 7px;
+    height: 26px;
+    background-color: #D7DFEC;
+    color: #035EAF;
+}
+
+.shadetabs li a:hover {
+    text-decoration: none;
+    color: #FFFFFF;
+    background-color: #D7DFEC;
+    height: 26px;
+}
+
+.shadetabs li.selected {
+
+}
+
+.shadetabs li.selected a {
+    /*selected main tab style */
+    color: #FFFFFF;
+    background-color: #035EAF;
+    position: relative;
+    top: 1px;
+}
+
+.shadetabs li.selected a:hover {
+    /*selected main tab style */
+    text-decoration: none;
+    color: #FFFFFF;
+    background-color: #035EAF;
+}
+
+.tabcontentstyle {
+    /*style of tab content oontainer*/
+    width: 100%;
+}
+
+.tabcontent {
+    display: none;
+}
+
+/* D3 styles */
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000000;
+    shape-rendering: crispEdges;
+}
+
+.bar {
+    fill: #7aa4da;
+}
+
+.bar:hover,
+.bar.highlight {
+    fill: orangered;
+}
+
+.d3-tip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(4, 60, 127, 0.9);
+    color: #fff;
+    border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(4, 60, 127, 0.80);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+}
+
+@media print {
+    .tabcontent {
+        display: block !important;
+    }
+}

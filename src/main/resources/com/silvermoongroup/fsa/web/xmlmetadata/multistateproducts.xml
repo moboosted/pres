@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<multiStateCatalogue>
+    <multiStateProduct>
+        <specId>1031</specId>
+        <specName>Commercial Auto</specName>
+        <kindId>1031</kindId>
+        <kindName>Commercial Auto</kindName>
+        <coverageProduct>
+            <specId>1032</specId>
+            <specName>Owned Auto Zone A</specName>
+            <kindId>1032</kindId>
+            <kindName>Owned Auto</kindName>
+        </coverageProduct>
+        <coverageProduct>
+            <specId>1036</specId>
+            <specName>Owned Auto Zone B</specName>
+            <kindId>1032</kindId>
+            <kindName>Owned Auto</kindName>
+        </coverageProduct>
+    </multiStateProduct>
+    <multiStateProduct>
+        <specId>1045</specId>
+        <specName>Propety and Casualty</specName>
+        <kindId>1045</kindId>
+        <kindName>Propety and Casualty</kindName>
+        <coverageProduct>
+            <specId>1032</specId>
+            <specName>Owned Auto Zone A</specName>
+            <kindId>1032</kindId>
+            <kindName>Owned Auto</kindName>
+        </coverageProduct>
+        <coverageProduct>
+            <specId>1036</specId>
+            <specName>Owned Auto Zone B</specName>
+            <kindId>1032</kindId>
+            <kindName>Owned Auto</kindName>
+        </coverageProduct>
+    </multiStateProduct>
+</multiStateCatalogue>

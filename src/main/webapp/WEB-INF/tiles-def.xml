@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+        "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+    <!-- ============================= Layout =============================== -->
+    <definition name=".layout" template="/jsp/secure/layout/layout.jsp">
+        <put name="header" value="/jsp/secure/layout/navbar.jsp"/>
+        <put name="footer" value="/jsp/secure/layout/footer.jsp"/>
+    </definition>
+
+    <definition name=".partyLayout" template="/jsp/secure/layout/partyLayout.jsp">
+        <put name="header" value="/jsp/secure/layout/navbar.jsp"/>
+        <put name="footer" value="/jsp/secure/layout/footer.jsp"/>
+    </definition>
+
+    <!-- =========================== Common Pages =========================== -->
+
+    <definition name=".about" extends=".layout">
+        <put name="title" value="page.about.title"/>
+        <put name="content" value="/jsp/secure/help/about.jsp"/>
+    </definition>
+
+    <!-- ==================== Agreement Creation and details ==================== -->
+
+    <definition name=".findAgreement" extends=".layout">
+        <put name="title" value="page.findagreement.title"/>
+        <put name="content" value="/jsp/secure/agreement/findAgreement.jsp"/>
+    </definition>
+
+    <definition name=".agreementStatistics" extends=".layout">
+      <put name="title" value="page.agreementstatistics.title"/>
+      <put name="content" value="/jsp/secure/agreement/agreementStatistics.jsp"/>
+    </definition>
+
+    <!-- ================== Category =============================== -->
+    <definition name=".selectCategory" extends=".layout">
+        <put name="title" value="page.selectcategory.title"/>
+        <put name="content" value="/jsp/secure/category/select.jsp"/>
+    </definition>
+
+    <!-- ================== Financial Transaction ================== -->
+
+    <definition name=".findFinancialTransactions" extends=".layout">
+        <put name="title" value="page.findfinancialtransactions.title"/>
+        <put name="content" value="/jsp/secure/ftx/findFinancialTransaction.jsp"/>
+    </definition>
+
+    <definition name=".payment" extends=".layout">
+        <put name="title" value="page.payment.title"/>
+        <put name="content" value="/jsp/secure/ftx/payment.jsp"/>
+    </definition>
+
+    <definition name=".paymentDue" extends=".layout">
+        <put name="title" value="page.paymentdue.title"/>
+        <put name="content" value="/jsp/secure/ftx/paymentDue.jsp"/>
+    </definition>
+
+  <definition name=".unitTransaction" extends=".layout">
+    <put name="title" value="page.unittransaction.title"/>
+    <put name="content" value="/jsp/secure/ftx/unitTransaction.jsp"/>
+  </definition>
+
+    <definition name=".findAccounts" extends=".layout">
+        <put name="title" value="page.findaccounts.title"/>
+        <put name="content" value="/jsp/secure/account/findAccounts.jsp"/>
+    </definition>
+
+    <definition name=".monetaryAccount" extends=".layout">
+        <put name="title" value="page.monetaryaccount.title"/>
+        <put name="content" value="/jsp/secure/account/monetaryAccount.jsp"/>
+    </definition>
+
+    <definition name=".assetHoldingAccount" extends=".layout">
+        <put name="title" value="page.assetholdingaccount.title"/>
+        <put name="content" value="/jsp/secure/account/assetHoldingAccount.jsp"/>
+    </definition>
+
+    <definition name=".accountEntries" extends=".layout">
+        <put name="title" value="page.findaccountentries.title"/>
+        <put name="content" value="/jsp/secure/account/findAccountEntries.jsp"/>
+    </definition>
+
+    <definition name=".accountEntry" extends=".layout">
+        <put name="title" value="page.accountentry.title"/>
+        <put name="content" value="/jsp/secure/account/accountEntry.jsp"/>
+    </definition>
+
+    <definition name=".moneyProvisionAccount" extends=".layout">
+        <put name="title" value="page.moneyprovision.accountbased.title"/>
+        <put name="content" value="/jsp/secure/ftx/moneyprovision/accountBasedMoneyProvision.jsp"/>
+    </definition>
+
+    <definition name=".moneyProvisionParticular" extends=".layout">
+        <put name="title" value="page.moneyprovision.particular.title"/>
+        <put name="content" value="/jsp/secure/ftx/moneyprovision/particularMoneyProvision.jsp"/>
+    </definition>
+
+    <definition name=".moneyScheduler" extends=".layout">
+        <put name="title" value="page.moneyscheduler.title"/>
+        <put name="content" value="/jsp/secure/moneyscheduler/moneyScheduler.jsp"/>
+    </definition>
+
+    <definition name=".executeScheduler" extends=".layout">
+        <put name="title" value="page.executemoneyscheduler.title"/>
+        <put name="content" value="/jsp/secure/moneyscheduler/executeMoneyScheduler.jsp"/>
+    </definition>
+
+    <definition name=".findMoneySchedulers" extends=".layout">
+        <put name="title" value="page.findmoneyschedulers.title"/>
+        <put name="content" value="/jsp/secure/moneyscheduler/findMoneySchedulers.jsp"/>
+    </definition>
+
+    <definition name=".findMoneySchedulersToExecute" extends=".layout">
+        <put name="title" value="page.findmoneyschedulerstoexecute.title"/>
+        <put name="content" value="/jsp/secure/moneyscheduler/findMoneySchedulersToExecute.jsp"/>
+    </definition>
+
+    <definition name=".findMoneySchedulerExecutions" extends=".layout">
+        <put name="title" value="page.findmoneyschedulerexecutions.title"/>
+        <put name="content" value="/jsp/secure/moneyscheduler/execution/findMoneySchedulerExecutions.jsp"/>
+    </definition>
+
+    <definition name=".moneySchedulerExecution" extends=".layout">
+        <put name="title" value="page.moneyschedulerexecution.title"/>
+        <put name="content" value="/jsp/secure/moneyscheduler/execution/moneySchedulerExecution.jsp"/>
+    </definition>
+
+    <definition name=".trialBalance" extends=".layout">
+        <put name="title" value="page.trialbalance.title"/>
+        <put name="content" value="/jsp/secure/ftx/trialBalance.jsp"/>
+    </definition>
+
+    <definition name=".ageingReport" extends=".layout">
+      <put name="title" value="page.ageingreport.title"/>
+      <put name="content" value="/jsp/secure/ftx/ageingReport.jsp"/>
+    </definition>
+    <!-- ============================== Party =============================== -->
+
+    <definition name=".party" extends=".partyLayout">
+        <put name="title" value="page.party.title"/>
+        <put name="content" value="/jsp/secure/party/party.jsp"/>
+    </definition>
+
+  <definition name=".addParty" extends=".layout">
+    <put name="title" value="page.party.title"/>
+    <put name="content" value="/jsp/secure/party/addParty.jsp"/>
+  </definition>
+
+  <definition name=".findParty" extends=".layout">
+    <put name="title" value="page.party.title"/>
+    <put name="content" value="/jsp/secure/party/find/findParty.jsp"/>
+  </definition>
+
+    <!-- ========================= Physical Object ========================== -->
+
+    <definition name=".manufacturedItem" extends=".layout">
+        <put name="title" value="page.physicalobject.manufacturedItemAdmin.title"/>
+        <put name="content" value="/jsp/secure/physicalobject/manufacturedItem.jsp"/>
+    </definition>
+
+    <!-- ============================== Request ============================= -->
+
+    <definition name=".requestSearch" extends=".layout">
+        <put name="title" value="page.requestsearch.title"/>
+        <put name="content" value="/jsp/secure/request/findRequest.jsp"/>
+    </definition>
+
+    <!-- ========================= User Preferences ========================= -->
+
+    <definition name=".dashboard" extends=".layout">
+        <put name="title" value="page.dashboard.title"/>
+        <put name="content" value="/jsp/secure/user/dashboard.jsp"/>
+    </definition>
+
+    <definition name=".userpreferences" extends=".layout">
+        <put name="title" value="page.userpreferences.title"/>
+        <put name="content" value="/jsp/secure/user/preferences.jsp"/>
+    </definition>
+
+    <!-- ========== Agreement, Request and Roles ========================= -->
+
+    <definition name=".agreementView" extends=".layout">
+        <put name="title" value="page.agreement.title"/>
+        <put name="content" value="/jsp/secure/agreementandrequest/agreement.jsp"/>
+    </definition>
+
+    <definition name=".requestView" extends=".layout">
+        <put name="title" value="page.requestview.title"/>
+        <put name="content" value="/jsp/secure/agreementandrequest/request.jsp"/>
+    </definition>
+
+    <definition name=".roleView" extends=".layout">
+        <put name="title" value="page.roleview.title"/>
+        <put name="content" value="/jsp/secure/agreementandrequest/roleview.jsp"/>
+    </definition>
+
+    <!-- ========== Product administration ========================= -->
+
+    <definition name=".uploadProduct" extends=".layout">
+        <put name="title" value="page.uploadproduct.title"/>
+        <put name="content" value="/jsp/secure/product/upload.jsp"/>
+    </definition>
+
+    <definition name=".product" extends=".layout">
+        <put name="title" value="page.product.title"/>
+        <put name="content" value="/jsp/secure/product/product.jsp"/>
+    </definition>
+
+    <definition name=".productVersion" extends=".layout">
+        <put name="title" value="page.productversion.title"/>
+        <put name="content" value="/jsp/secure/product/productVersion.jsp"/>
+    </definition>
+
+    <definition name=".findMarketableProducts" extends=".layout">
+        <put name="title" value="page.findmarktetableproducts.title"/>
+        <put name="content" value="/jsp/secure/product/findMarketableProducts.jsp"/>
+    </definition>
+
+    <definition name=".findAgreementStates" extends=".layout">
+        <put name="title" value="page.findagreementstates.title"/>
+        <put name="content" value="/jsp/secure/product/findAgreementStates.jsp"/>
+    </definition>
+
+    <definition name=".agreementState" extends=".layout">
+        <put name="title" value="page.agreementstate.title"/>
+        <put name="content" value="/jsp/secure/product/agreementState.jsp"/>
+    </definition>
+
+    <definition name=".addAgreementState" extends=".layout">
+        <put name="title" value="page.addagreementstate.title"/>
+        <put name="content" value="/jsp/secure/product/addAgreementState.jsp"/>
+    </definition>
+
+    <!-- ============ Fund administration ========================= -->
+    <definition name=".fund" extends=".layout">
+        <put name="title" value="page.fund.title"/>
+        <put name="content" value="/jsp/secure/fund/fund.jsp"/>
+    </definition>
+
+    <definition name=".searchFund" extends=".layout">
+        <put name="title" value="page.searchfund.title"/>
+        <put name="content" value="/jsp/secure/fund/findFund.jsp"/>
+    </definition>
+
+    <definition name=".createFund" extends=".layout">
+        <put name="title" value="page.createfund.title"/>
+        <put name="content" value="/jsp/secure/fund/addFund.jsp"/>
+    </definition>
+
+    <definition name=".linkFund" extends=".layout">
+        <put name="title" value="page.linkfund.title"/>
+        <put name="content" value="/jsp/secure/fund/linkFund.jsp"/>
+    </definition>
+
+    <definition name=".findAssetPrices" extends=".layout">
+        <put name="title" value="page.findassetprices.title"/>
+        <put name="content" value="/jsp/secure/fund/findAssetPrices.jsp"/>
+    </definition>
+
+    <!-- ============ Public Holiday administration ========================= -->
+
+    <definition name=".searchPublicHoliday" extends=".layout">
+        <put name="title" value="page.searchpublicholiday.title"/>
+        <put name="content" value="/jsp/secure/publicholiday/findPublicHoliday.jsp"/>
+    </definition>
+
+    <definition name=".createPublicHoliday" extends=".layout">
+        <put name="title" value="page.createpublicholiday.title"/>
+        <put name="content" value="/jsp/secure/publicholiday/addPublicHoliday.jsp"/>
+    </definition>
+
+    <definition name=".updatePublicHoliday" extends=".layout">
+        <put name="title" value="page.updatepublicholiday.title"/>
+        <put name="content" value="/jsp/secure/publicholiday/updatePublicHoliday.jsp"/>
+    </definition>
+
+    <!-- ============ Account Mapping ====================== -->
+    <definition name=".findAccountMappings" extends=".layout">
+        <put name="title" value="page.findaccountmapping.title"/>
+        <put name="content" value="/jsp/secure/account/accountmapping/findAccountMappings.jsp"/>
+    </definition>
+
+    <definition name=".addAccountMapping" extends=".layout">
+        <put name="title" value="page.addaccountmapping.title"/>
+        <put name="content" value="/jsp/secure/account/accountmapping/addAccountMapping.jsp"/>
+    </definition>
+
+    <definition name=".updateAccountMapping" extends=".layout">
+        <put name="title" value="page.updateaccountmapping.title"/>
+        <put name="content" value="/jsp/secure/account/accountmapping/updateAccountMapping.jsp"/>
+    </definition>
+
+  <!-- ============ Enumerations ========================= -->
+
+    <definition name=".enumerationTypes" extends=".layout">
+      <put name="title" value="page.enumerationtypes.title"/>
+      <put name="content" value="/jsp/secure/enumeration/enumerationTypes.jsp"/>
+    </definition>
+
+    <definition name=".viewEnumerations" extends=".layout">
+      <put name="title" value="page.viewenumerations.title"/>
+      <put name="content" value="/jsp/secure/enumeration/viewEnumerations.jsp"/>
+    </definition>
+
+    <definition name=".addEnumeration" extends=".layout">
+      <put name="title" value="page.addenumeration.title"/>
+      <put name="content" value="/jsp/secure/enumeration/addEnumeration.jsp"/>
+    </definition>
+
+    <definition name=".updateEnumeration" extends=".layout">
+      <put name="title" value="page.addenumeration.title"/>
+      <put name="content" value="/jsp/secure/enumeration/updateEnumeration.jsp"/>
+    </definition>
+  
+    <!-- ============ Browse Types ========================= -->
+
+    <definition name=".browseTypes" extends=".layout">
+        <put name="title" value="page.browsetypes.title"/>
+        <put name="content" value="/jsp/secure/types/browse.jsp"/>
+    </definition>
+
+    <!-- ============ Configuration Management ========================= -->
+
+    <definition name=".clearCache" extends=".layout">
+        <put name="title" value="page.cacheconfiguration.title"/>
+        <put name="content" value="/jsp/secure/configuration/cache.jsp"/>
+    </definition>
+
+    <!-- ============ Claim Management ========================= -->
+    <definition name=".findClaimFolder" extends=".layout">
+        <put name="title" value="page.findclaimfolder.title"/>
+        <put name="content" value="/jsp/secure/claim/findClaimFolder.jsp"/>
+    </definition>
+
+    <definition name=".findElementaryClaim" extends=".layout">
+        <put name="title" value="page.findelementaryclaim.title"/>
+        <put name="content" value="/jsp/secure/claim/findElementaryClaim.jsp"/>
+    </definition>
+
+    <definition name=".validateCoverage" extends=".layout">
+        <put name="title" value="page.validateCoverage.title"/>
+        <put name="content" value="/jsp/secure/claim/validateCoverage.jsp"/>
+    </definition>
+
+    <definition name=".claimNavigator" extends=".layout">
+        <put name="title" value="page.claimnavigator.title"/>
+        <put name="content" value="/jsp/secure/claim/navigator/claimNavigator.jsp"/>
+    </definition>
+
+    <definition name=".addLossEvent" extends=".layout">
+      <put name="title" value="page.addlossevent.title"/>
+      <put name="content" value="/jsp/secure/claim/addLossEvent.jsp"/>
+    </definition>
+
+    <definition name=".findLossEvent" extends=".layout">
+      <put name="title" value="page.findlossevent.title"/>
+      <put name="content" value="/jsp/secure/claim/findLossEvent.jsp"/>
+    </definition>
+
+    <definition name=".editLossEvent" extends=".layout">
+      <put name="title" value="page.editlossevent.title"/>
+      <put name="content" value="/jsp/secure/claim/editLossEvent.jsp"/>
+    </definition>
+
+    <definition name=".addClaimFolderHierarchy" extends=".layout">
+        <put name="title" value="page.addclaimfolderhierarchy.title"/>
+        <put name="content" value="/jsp/secure/claim/addClaimFolderHierarchy.jsp"/>
+    </definition>
+
+</tiles-definitions>

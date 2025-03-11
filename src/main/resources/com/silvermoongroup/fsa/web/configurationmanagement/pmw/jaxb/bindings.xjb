@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bindings
+        xmlns="http://java.sun.com/xml/ns/jaxb"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:annox="http://annox.dev.java.net"
+        extensionBindingPrefixes="xjc annox"
+        version="2.1">
+
+    <globalBindings localScoping="toplevel">
+      <!-- All classes should be serializable -->
+      <serializable uid="1"/>
+    </globalBindings>
+
+  <bindings schemaLocation="PMWTypeHierarchy.xsd" node="/xsd:schema">
+    <bindings node="xsd:complexType[@name='TypeHierarchyTransfer']">
+      <annox:annotate>
+        <annox:annotate annox:class="javax.xml.bind.annotation.XmlRootElement" name="TypeHierarchyTransfer"/>
+      </annox:annotate>
+    </bindings>
+  </bindings>
+
+</bindings>

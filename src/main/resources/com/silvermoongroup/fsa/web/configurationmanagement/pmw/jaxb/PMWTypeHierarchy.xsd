@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsd_1="http://XMLSchemaGeneration/TypeHierarchy/" targetNamespace="http://XMLSchemaGeneration/TypeHierarchy/">
+	
+	<xsd:complexType name="Type">
+			<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="targetAlias" type="xsd:string"/>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="childTypes" type="xsd_1:Type"/>
+					<xsd:element name="isAbstract" type="xsd:boolean"/>
+					<xsd:element name="effectiveFromDate" type="xsd:date"/>
+					<xsd:element name="effectiveToDate" type="xsd:date"/>
+					<xsd:element name="name" type="xsd:string"/>
+		<xsd:element name="lifeCycleStatus" type="xsd:string"/>
+				</xsd:sequence>			
+	</xsd:complexType>
+	
+	<xsd:complexType name="TypeHierarchyTransfer">
+		<xsd:sequence>
+			<xsd:element name="systemIdentifier" type="xsd:string"/>
+			<xsd:element name="versionNumber" type="xsd:string"/>
+			<xsd:element name="date" type="xsd:anySimpleType"/>
+			<xsd:element name="typeHierarchy" type="xsd_1:Type"/>
+			<xsd:element name="transferType" type="xsd_1:TransferType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="TypeHierarchyTransfer" type="xsd_1:TypeHierarchyTransfer"/>	
+	<xsd:simpleType name="TransferType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Import"/>
+			<xsd:enumeration value="Export"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

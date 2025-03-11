@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        version="2.1">
+
+	<tlib-version>1.1</tlib-version>
+	<short-name>smg</short-name>
+	<uri>http://silvermoongroup.com/tags</uri>
+
+	<tag>
+		<description>Custom formatting tag used to internationalise IAA
+			objects</description>
+		<name>fmt</name>
+		<tag-class>com.silvermoongroup.fsa.web.common.taglib.FormatTag
+		</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description>Expression to be evaluated.</description>
+			<name>value</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Parameters to be evaluated</description>
+			<name>arguments</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+        <attribute>
+          <description>Convenience method for a single parameter</description>
+            <name>arg</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    <attribute>
+      <description>An optional fallback to display</description>
+      <name>fallback</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+	</tag>
+
+  <tag>
+    <description>Formats the name of a specification object</description>
+    <name>fmtSpecificationObjectName</name>
+    <tag-class>com.silvermoongroup.fsa.web.common.taglib.FormatSpecificationObjectNameTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description>Expression to be evaluated.</description>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <description>Formats the hint of a specification object</description>
+    <name>fmtSpecificationObjectHint</name>
+    <tag-class>com.silvermoongroup.fsa.web.common.taglib.FormatSpecificationObjectHintTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description>Expression to be evaluated.</description>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  
+  <tag>
+    <description>Custom formatting tag used to internationalise number representations (identifiers) of Type objects</description>
+    <name>fmtType</name>
+    <tag-class>com.silvermoongroup.fsa.web.common.taglib.FormatTypeTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description>Expression to be evaluated.</description>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>  
+  
+  <tag>
+    <description>Format a currency amount</description>
+    <name>fmtCurrencyAmount</name>
+    <tag-class>com.silvermoongroup.fsa.web.common.taglib.FormatCurrencyAmountTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description>Expression to be evaluated.</description>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Whether to include the currency code or not.</description>
+      <name>cc</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>The pattern (defaults to 0.00).</description>
+      <name>pattern</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>    
+  </tag>
+
+  <tag>
+    <description>Format a measure amount</description>
+    <name>fmtMeasureAmount</name>
+    <tag-class>com.silvermoongroup.fsa.web.common.taglib.FormatMeasureAmountTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description>Expression to be evaluated.</description>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Whether to include the unit of measure code or not.</description>
+      <name>includeUnitOfMeasure</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>The pattern (defaults to 0.00).</description>
+      <name>pattern</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+		<description>Render an options selection for a set of types</description>
+      <name>typeOptions</name>
+		<tag-class>com.silvermoongroup.fsa.web.common.taglib.TypeReferenceOptionsTag
+		</tag-class>
+      <body-content>empty</body-content>
+      <attribute>
+        <description>The collection of types.</description>
+        <name>types</name>
+        <required>true</required>
+        <rtexprvalue>true</rtexprvalue>
+      </attribute>
+    </tag>
+
+  <tag>
+    <description>Render a hierarchical type 'tree' as options</description>
+    <name>typeTree</name>
+    <tag-class>com.silvermoongroup.fsa.web.common.taglib.TypeTreeTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description>The collection of types.</description>
+      <name>rootTypeId</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Should the root type be included?  (Defaults to true)</description>
+      <name>includeRootType</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Should the options be indented?  (Defaults to true)</description>
+      <name>indent</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <description>Render an options selection for a set of types</description>
+    <name>types</name>
+    <tag-class>com.silvermoongroup.fsa.web.common.taglib.TypesTag
+    </tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description>The parent type name for which subtypes should be displayed</description>
+      <name>subTypesOf</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Should only the immediate subtypes be displayed</description>
+      <name>immediateSubTypesOnly</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+		<attribute>
+			<description>The list of excluded types in a comma separated string array</description>
+			<name>excludedTypes</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+    <attribute>
+      <description>Should the values be the names of the types (deprecated)</description>
+      <name>valuesAsNames</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+	  <description>Should the parentType be one of the options returned?</description>
+	  <name>addParentType</name>
+	  <required>false</required>
+	  <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+	<tag>
+		<description>Render an options selection for a set of types</description>
+		<name>categorizedTypes</name>
+		<tag-class>com.silvermoongroup.fsa.web.common.taglib.CategorizedTypesTag
+		</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description>The category name for which types should be displayed</description>
+			<name>categoryName</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>The list of excluded types in a comma separated string array</description>
+			<name>excludedTypes</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+  <tag>
+    <description>Render an options selection for the contact point types that are supported by the UI</description>
+    <name>contactPointTypes</name>
+    <tag-class>com.silvermoongroup.fsa.web.common.taglib.ContactPointTypesTag</tag-class>
+    <body-content>empty</body-content>
+  </tag>
+
+  <tag>
+    <description>Render an options selection for the party registrations point types that are supported by the UI</description>
+    <name>partyRegistrationTypes</name>
+    <tag-class>com.silvermoongroup.fsa.web.common.taglib.RegistrationTypesTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>property</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+      <name>datepicker</name>
+		<tag-class>com.silvermoongroup.fsa.web.common.taglib.DatePickerTag
+		</tag-class>
+      <body-content>empty</body-content>
+      <attribute>
+        <name>selector</name>
+        <required>true</required>
+        <rtexprvalue>true</rtexprvalue>
+      </attribute>
+    </tag>
+
+	<tag>
+		<name>kinds</name>
+		<tag-class>
+			com.silvermoongroup.fsa.web.common.taglib.KindOptionsTag
+		</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>filter</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>label</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>property</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>styleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>kindType</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<description>Render options based on EnumerationType's type Ids</description>
+		<name>enumOptions</name>
+		<tag-class>com.silvermoongroup.fsa.web.common.taglib.EnumOptionsTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>filter</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>label</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>property</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>styleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>enumTypeId</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>showTerminated</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<description>Render options based on Category Scheme</description>
+		<name>catOptions</name>
+		<tag-class>com.silvermoongroup.fsa.web.common.taglib.CategoryOptionsTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>filter</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>label</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>property</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>styleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>categorySchemeName</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<description>Render options based on Immutable Enumeration's type ids</description>
+		<name>immutableEnumOptions</name>
+		<tag-class>com.silvermoongroup.fsa.web.common.taglib.ImmutableEnumOptionsTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>filter</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>label</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>property</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>styleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>immutableEnumerationClass</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<description>A dummy subclass for the default html:OptionsCollection with a more specific name to remove ambiguity.
+		</description>
+		<name>generalOptionsCollection</name>
+		<tag-class>com.silvermoongroup.fsa.web.common.taglib.GeneralOptionsCollectionTag</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>filter</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+		</attribute>
+		<attribute>
+			<name>label</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>property</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>styleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+    <tag>
+      <name>requestStatusButtons</name>
+      <tag-class>com.silvermoongroup.fsa.web.common.taglib.RequestStatusButtonsTag</tag-class>
+      <body-content>empty</body-content>
+      <attribute>
+        <name>request</name>
+        <required>true</required>
+        <rtexprvalue>true</rtexprvalue>
+      </attribute>
+      <attribute>
+        <name>onclick</name>
+        <required>false</required>
+        <rtexprvalue>true</rtexprvalue>
+      </attribute>
+    </tag>
+
+    <tag>
+        <name>jQueryDatePickerScript</name>
+        <tag-class>com.silvermoongroup.fsa.web.common.taglib.JQueryDatePickerScriptTag
+        </tag-class>
+        <body-content>empty</body-content>
+    </tag>
+  
+    <tag>
+      <name>jqueryscripts</name>
+		<tag-class>com.silvermoongroup.fsa.web.common.taglib.JQueryScriptsTag
+		</tag-class>
+      <body-content>empty</body-content>
+      <attribute>
+        <name>core</name>
+        <required>true</required>
+        <rtexprvalue>true</rtexprvalue>
+      </attribute>
+      <attribute>
+        <name>ui</name>
+        <required>true</required>
+        <rtexprvalue>true</rtexprvalue>
+      </attribute>
+      <attribute>
+        <name>theme</name>
+        <required>true</required>
+        <rtexprvalue>true</rtexprvalue>
+      </attribute>      
+    </tag>
+
+	<tag>
+		<name>select</name>
+		<tag-class>
+			com.silvermoongroup.fsa.web.common.taglib.SelectTag
+		</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>alt</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>altKey</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>bundle</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>disabled</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>errorKey</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>errorStyle</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>errorStyleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>errorStyleId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>indexed</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>multiple</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>onblur</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>onchange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>onclick</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>ondblclick</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>onfocus</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>onkeydown</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>onkeypress</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>onkeyup</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>onmousedown</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>onmousemove</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>onmouseout</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>onmouseover</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>onmouseup</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>property</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>styleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>styleId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>tabindex</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>size</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>title</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>titleKey</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>readonly</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<name>propertyKindHint</name>
+		<tag-class>
+			com.silvermoongroup.fsa.web.common.taglib.PropertyKindHintTag
+		</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>property</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>propertyNameTag</name>
+		<tag-class>com.silvermoongroup.fsa.web.common.taglib.PropertyNameTag
+		</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>property</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>structuredActual</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>inputValues</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>errorMessages</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+  
+	<tag>
+		<name>propertyValueTag</name>
+		<tag-class>com.silvermoongroup.fsa.web.common.taglib.PropertyValueTag
+		</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>property</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>structuredActual</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>inputValues</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>errorMessages</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+  	</tag>
+  
+    <tag>
+      <name>contactPreferenceAndPointJsonTag</name>
+      <tag-class>com.silvermoongroup.fsa.web.common.taglib.ContactPreferenceAndPointJsonTag</tag-class>
+      <body-content>empty</body-content>
+      <attribute>
+        <name>contactPreferenceMap</name>
+        <required>true</required>
+        <rtexprvalue>true</rtexprvalue>
+      </attribute>
+    </tag>
+
+  <tag>
+    <name>objectReference</name>
+    <tag-class>com.silvermoongroup.fsa.web.common.taglib.ObjectReferenceWithToolTipTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>display</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <function>
+    <name>isTopLevelAgreement</name>
+    <function-class>com.silvermoongroup.fsa.web.common.taglib.function.AgreementFunctions</function-class>
+    <function-signature>boolean isTopLevelAgreement(javax.servlet.jsp.PageContext, com.silvermoongroup.businessservice.policymanagement.dto.AgreementDTO)</function-signature>
+  </function>
+
+	<function>
+		<name>isSameOrSubTypeOfPayment</name>
+		<function-class>com.silvermoongroup.fsa.web.common.taglib.function.CommonFunctions</function-class>
+		<function-signature>boolean isSameOrSubTypeOfPayment(javax.servlet.jsp.PageContext,com.silvermoongroup.businessservice.financialmanagement.dto.FinancialTransactionDTO)</function-signature>
+	</function>
+
+	<function>
+    <name>isComponentRequest</name>
+    <function-class>com.silvermoongroup.fsa.web.common.taglib.function.RequestFunctions</function-class>
+    <function-signature>boolean isComponentRequest(javax.servlet.jsp.PageContext,com.silvermoongroup.businessservice.policymanagement.dto.RequestDTO)</function-signature>
+  </function>
+
+  <function>
+    <name>getRequestCancellationConfirmationMessage</name>
+    <function-class>com.silvermoongroup.fsa.web.common.taglib.function.RequestFunctions</function-class>
+    <function-signature>java.lang.String getRequestCancellationConfirmationMessage(javax.servlet.jsp.PageContext, com.silvermoongroup.businessservice.policymanagement.dto.RequestDTO)</function-signature>
+  </function>
+
+  <function>
+    <name>getRequestExecutionConfirmationMessage</name>
+    <function-class>com.silvermoongroup.fsa.web.common.taglib.function.RequestFunctions</function-class>
+    <function-signature>java.lang.String getRequestExecutionConfirmationMessage(javax.servlet.jsp.PageContext, com.silvermoongroup.businessservice.policymanagement.dto.RequestDTO)</function-signature>
+  </function>
+
+  <!-- Component list functionality -->
+  <function>
+    <name>canComponentBeAdded</name>
+    <function-class>com.silvermoongroup.fsa.web.common.taglib.function.ComponentFunctions</function-class>
+    <function-signature>boolean canComponentBeAdded(javax.servlet.jsp.PageContext, com.silvermoongroup.businessservice.policymanagement.dto.ComponentListDTO)</function-signature>
+  </function>
+
+  <function>
+    <name>canComponentBeDeleted</name>
+    <function-class>com.silvermoongroup.fsa.web.common.taglib.function.ComponentFunctions</function-class>
+    <function-signature>boolean canComponentBeDeleted(javax.servlet.jsp.PageContext, com.silvermoongroup.businessservice.policymanagement.dto.ComponentListDTO)</function-signature>
+  </function>
+  <!-- End Component list functionality -->
+
+  <function>
+    <name>getComponentListCardinality</name>
+    <function-class>com.silvermoongroup.fsa.web.common.taglib.function.ComponentFunctions</function-class>
+    <function-signature>java.lang.String getComponentListCardinality(javax.servlet.jsp.PageContext, com.silvermoongroup.businessservice.policymanagement.dto.ComponentListDTO)</function-signature>
+  </function>
+
+  <!-- Role list functionality -->
+  <function>
+    <name>isRoleListEditable</name>
+    <function-class>com.silvermoongroup.fsa.web.common.taglib.function.RoleFunctions</function-class>
+    <function-signature>boolean isRoleListEditable(javax.servlet.jsp.PageContext, com.silvermoongroup.businessservice.policymanagement.dto.RoleListDTO)</function-signature>
+  </function>
+
+  <function>
+    <name>canRolePlayerBeAdded</name>
+    <function-class>com.silvermoongroup.fsa.web.common.taglib.function.RoleFunctions</function-class>
+    <function-signature>boolean canRolePlayerBeAdded(javax.servlet.jsp.PageContext, com.silvermoongroup.businessservice.policymanagement.dto.RoleListDTO)</function-signature>
+  </function>
+
+  <function>
+    <name>canRolePlayerBeViewed</name>
+    <function-class>com.silvermoongroup.fsa.web.common.taglib.function.RoleFunctions</function-class>
+    <function-signature>boolean canRolePlayerBeViewed(javax.servlet.jsp.PageContext, com.silvermoongroup.businessservice.policymanagement.dto.RoleListDTO, com.silvermoongroup.businessservice.policymanagement.dto.RoleDTO)</function-signature>
+  </function>
+
+  <function>
+    <name>canRoleOrRolePlayerBeDeleted</name>
+    <function-class>com.silvermoongroup.fsa.web.common.taglib.function.RoleFunctions</function-class>
+    <function-signature>boolean canRoleOrRolePlayerBeDeleted(javax.servlet.jsp.PageContext, com.silvermoongroup.businessservice.policymanagement.dto.RoleListDTO, com.silvermoongroup.businessservice.policymanagement.dto.RoleDTO)</function-signature>
+  </function>
+
+  <function>
+    <name>formatConformanceTypes</name>
+    <function-class>com.silvermoongroup.fsa.web.common.taglib.function.RoleFunctions</function-class>
+    <function-signature>java.lang.String formatConformanceTypes(javax.servlet.jsp.PageContext, com.silvermoongroup.businessservice.policymanagement.dto.RoleListDTO)</function-signature>
+  </function>
+
+  <function>
+    <name>getRoleListCardinality</name>
+    <function-class>com.silvermoongroup.fsa.web.common.taglib.function.RoleFunctions</function-class>
+    <function-signature>java.lang.String getRoleListCardinality(javax.servlet.jsp.PageContext, com.silvermoongroup.businessservice.policymanagement.dto.RoleListDTO)</function-signature>
+  </function>
+
+  <!-- End Role list functionality -->
+
+</taglib>

@@ -1,0 +1,70 @@
+/*This is the style sheet for the left menu component*/
+.mainlinkcss {
+    border-top: 1px solid #ffffff;
+    line-height: 19px;
+    z-index: 101;
+    background-color: #F2F2F2;
+    width: 145px;
+}
+
+.mainlinkcss a {
+    color: #666666;
+    width: 100%;
+    display: block;
+    padding: 1px 0;
+    text-decoration: none;
+    text-indent: 5px;
+}
+
+.mainlinkcss a:hover {
+    /*hover background color*/
+    background-color: #A7C7E3;
+    color: white;
+}
+
+.mainlinkcss td a {
+    color: black;
+    width: 160px;
+    display: block;
+    border-bottom: 1px solid gray;
+    padding: 1px 0;
+    text-decoration: none;
+    font-weight: bold;
+    text-indent: 5px;
+}
+
+.mainlinkcss td a:hover {
+    background-color: #D7DFEC;
+    color: white;
+}
+
+.anylinkcss {
+    position: absolute;
+    visibility: hidden;
+    border: 1px solid #FFFFFF;
+    border-bottom-width: 0;
+    line-height: 18px;
+    z-index: 100;
+    background-color: white;
+}
+
+.anylinkcss a {
+    color: #666666;
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #FFFFFF;
+    text-decoration: none;
+    text-indent: 5px;
+    background-color: #F2F2F2;
+    padding: 1px 0.5em 1px 0;
+}
+
+.anylinkcss a:hover {
+    /*hover background color*/
+    background-color: #A7C7E3;
+    color: white;
+}
+
+.end {
+    background: url("../images/nav_bottom.jpg") no-repeat;
+}

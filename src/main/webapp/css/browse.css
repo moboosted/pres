@@ -1,0 +1,38 @@
+#types-node-tree {
+    height: auto;
+}
+
+#types-node-content {
+}
+
+.types-external-ref {
+}
+
+.types-status {
+    font-size: smaller;
+}
+
+#types-content > input[type=text] {
+    border-radius: 10px;
+}
+
+#myModalLabel{
+	color:darkslategrey
+}
+
+.modal-footer {
+    text-align: center;
+}
+
+.form-horizontal .control-label{
+	text-align: left;
+	font-size:11px;
+}
+
+.modal-body > p {
+    font-size:15px
+}
+
+#informationMessage{
+	font-size:15px;
+}

@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+    <!-- ================================================================ -->
+    <!-- Form Bean Definitions -->
+    <!-- ================================================================ -->
+    <form-beans>
+
+        <form-bean name="loginForm" type="com.silvermoongroup.fsa.web.security.form.LoginForm"/>
+        <form-bean name="manufacturedItemForm"
+                   type="com.silvermoongroup.fsa.web.physicalobject.form.ManufacturedItemForm"/>
+
+        <form-bean name="selectCategoryForm" type="com.silvermoongroup.fsa.web.category.form.SelectCategoryForm"/>
+        <form-bean name="moneySchedulerForm" type="com.silvermoongroup.fsa.web.moneyscheduler.form.MoneySchedulerForm"/>
+
+        <form-bean name="partyForm" type="com.silvermoongroup.fsa.web.party.form.PartyForm"/>
+        <form-bean name="addPartyForm" type="com.silvermoongroup.fsa.web.party.form.AddPartyForm"/>
+        <form-bean name="findPartyForm" type="com.silvermoongroup.fsa.web.party.form.FindPartyForm"/>
+        <form-bean name="requestSearchForm" type="com.silvermoongroup.fsa.web.request.RequestSearchForm"/>
+        <form-bean name="getPersonForm" type="com.silvermoongroup.fsa.web.party.form.GetPersonForm"/>
+        <form-bean name="getOrganisationForm" type="com.silvermoongroup.fsa.web.party.form.GetOrganisationForm"/>
+
+        <!-- User -->
+        <form-bean name="userPreferencesForm" type="com.silvermoongroup.fsa.web.user.PreferencesForm"/>
+        <form-bean name="dashboardForm" type="com.silvermoongroup.fsa.web.user.DashboardForm"/>
+
+        <form-bean name="findAgreementForm" type="com.silvermoongroup.fsa.web.agreement.form.FindAgreementForm"/>
+        <form-bean name="agreementViewForm" type="com.silvermoongroup.fsa.web.agreementandrequest.form.AgreementForm"/>
+        <form-bean name="roleViewForm" type="com.silvermoongroup.fsa.web.agreementandrequest.form.RolePropertiesForm"/>
+        <form-bean name="requestViewForm" type="com.silvermoongroup.fsa.web.agreementandrequest.form.RequestViewForm"/>
+        <form-bean name="agreementStatisticsForm" type="com.silvermoongroup.fsa.web.agreement.form.AgreementStatisticsForm"/>
+
+
+        <!-- Product -->
+        <form-bean name="findMarketableProductsForm"
+                   type="com.silvermoongroup.fsa.web.product.form.FindMarketableProductsForm"/>
+        <form-bean name="productForm" type="com.silvermoongroup.fsa.web.product.ProductForm"/>
+        <form-bean name="productVersionForm" type="com.silvermoongroup.fsa.web.product.ProductVersionForm"/>
+        <form-bean name="uploadProductForm" type="com.silvermoongroup.fsa.web.product.form.UploadProductForm"/>
+        <form-bean name="findAgreementStateForm" type="com.silvermoongroup.fsa.web.product.FindAgreementStateForm"/>
+        <form-bean name="agreementStateForm" type="com.silvermoongroup.fsa.web.product.AgreementStateForm"/>
+        <form-bean name="addAgreementStateForm" type="com.silvermoongroup.fsa.web.product.AddAgreementStateForm"/>
+        <form-bean name="createRequestForMarketableProductVersionForm"
+                   type="com.silvermoongroup.fsa.web.product.form.CreateRequestForMarketableProductVersionForm"/>
+
+        <!-- Financial Transaction -->
+        <form-bean name="executeSchedulerForm"
+                   type="com.silvermoongroup.fsa.web.moneyscheduler.form.ExecuteMoneySchedulerForm"/>
+        <form-bean name="trialBalanceForm" type="com.silvermoongroup.fsa.web.ftx.form.TrialBalanceForm"/>
+        <form-bean name="ageingReportForm" type="com.silvermoongroup.fsa.web.ftx.form.AgeingReportForm"/>
+        <form-bean name="findMoneySchedulersForm"
+                   type="com.silvermoongroup.fsa.web.moneyscheduler.form.FindMoneySchedulersForm"/>
+        <form-bean name="findMoneySchedulersToExecuteForm"
+                   type="com.silvermoongroup.fsa.web.moneyscheduler.form.FindMoneySchedulersToExecuteForm"/>
+        <form-bean name="findMoneySchedulerExecutionsForm"
+                   type="com.silvermoongroup.fsa.web.moneyscheduler.execution.FindMoneySchedulerExecutionsForm"/>
+        <form-bean name="moneySchedulerExecutionForm"
+                   type="com.silvermoongroup.fsa.web.moneyscheduler.execution.MoneySchedulerExecutionForm"/>
+        <form-bean name="findFinancialTransactionsForm"
+                   type="com.silvermoongroup.fsa.web.ftx.FindFinancialTransactionsForm"/>
+        <form-bean name="financialTransactionForm" type="com.silvermoongroup.fsa.web.ftx.FinancialTransactionForm"/>
+        <form-bean name="unitTransactionForm" type="com.silvermoongroup.fsa.web.ftx.UnitTransactionForm"/>
+        <form-bean name="paymentForm" type="com.silvermoongroup.fsa.web.ftx.PaymentForm"/>
+        <form-bean name="paymentDueForm" type="com.silvermoongroup.fsa.web.ftx.PaymentDueForm"/>
+        <form-bean name="moneyProvisionForm" type="com.silvermoongroup.fsa.web.ftx.moneyprovision.MoneyProvisionForm"/>
+
+        <!-- Account -->
+        <form-bean name="findAccountsForm" type="com.silvermoongroup.fsa.web.account.FindAccountForm"/>
+        <form-bean name="accountForm" type="com.silvermoongroup.fsa.web.account.AccountForm"/>
+        <form-bean name="monetaryAccountForm" type="com.silvermoongroup.fsa.web.account.MonetaryAccountForm"/>
+        <form-bean name="assetHoldingAccountForm" type="com.silvermoongroup.fsa.web.account.AssetHoldingAccountForm"/>
+        <form-bean name="findAccountEntriesForm" type="com.silvermoongroup.fsa.web.account.FindAccountEntriesForm"/>
+        <form-bean name="accountEntryForm" type="com.silvermoongroup.fsa.web.account.AccountEntryForm"/>
+        <form-bean name="findAccountMappingForm"
+                   type="com.silvermoongroup.fsa.web.account.accountmapping.FindAccountMappingForm"/>
+        <form-bean name="addAccountMappingForm"
+                   type="com.silvermoongroup.fsa.web.account.accountmapping.AddAccountMappingForm"/>
+        <form-bean name="updateAccountMappingForm"
+                   type="com.silvermoongroup.fsa.web.account.accountmapping.UpdateAccountMappingForm"/>
+
+        <!-- Fund Management -->
+        <form-bean name="searchFundForm" type="com.silvermoongroup.fsa.web.fund.form.SearchFundForm"/>
+        <form-bean name="createFundForm" type="com.silvermoongroup.fsa.web.fund.form.CreateFundForm"/>
+        <form-bean name="linkFundForm" type="com.silvermoongroup.fsa.web.fund.form.LinkFundForm"/>
+        <form-bean name="fundForm" type="com.silvermoongroup.fsa.web.fund.FundForm"/>
+        <form-bean name="findAssetPricesForm" type="com.silvermoongroup.fsa.web.fund.FindAssetPricesForm"/>
+
+        <!-- Public Holiday -->
+        <form-bean name="findPublicHolidayForm"
+                   type="com.silvermoongroup.fsa.web.configuration.publicholiday.FindPublicHolidayForm"/>
+        <form-bean name="updatePublicHolidayForm"
+                   type="com.silvermoongroup.fsa.web.configuration.publicholiday.UpdatePublicHolidayForm"/>
+        <form-bean name="addPublicHolidayForm"
+                   type="com.silvermoongroup.fsa.web.configuration.publicholiday.AddPublicHolidayForm"/>
+
+        <!-- Claim -->
+        <form-bean name="findClaimFolderForm" type="com.silvermoongroup.fsa.web.claimmanagement.form.FindClaimFolderForm"/>
+        <form-bean name="findElementaryClaimForm" type="com.silvermoongroup.fsa.web.claimmanagement.form.FindElementaryClaimForm"/>
+        <form-bean name="claimNavigatorForm" type="com.silvermoongroup.fsa.web.claimmanagement.form.ClaimNavigatorForm"/>
+        <form-bean name="claimNavigatorContentForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="nodeObjectReference" type="com.silvermoongroup.common.domain.ObjectReference"/>
+            <form-property name="claimFolder" type="com.silvermoongroup.claim.domain.intf.IClaimFolder"/>
+            <form-property name="elementaryClaim" type="com.silvermoongroup.claim.domain.intf.IElementaryClaim"/>
+            <form-property name="claimOffer" type="com.silvermoongroup.claim.domain.intf.IClaimOffer"/>
+        </form-bean>
+        <form-bean name="rolesInClaimForm" type="com.silvermoongroup.fsa.web.claimmanagement.form.RolesInClaimForm"/>
+        <form-bean name="rolesInClaimOfferForm" type="com.silvermoongroup.fsa.web.claimmanagement.form.RolesInClaimOfferForm"/>
+        <form-bean name="addLossEventForm" type="com.silvermoongroup.fsa.web.claimmanagement.form.LossEventForm"/>
+        <form-bean name="findLossEventForm" type="com.silvermoongroup.fsa.web.claimmanagement.form.FindLossEventForm"/>
+        <form-bean name="addClaimFolderHierarchyForm" type="com.silvermoongroup.fsa.web.claimmanagement.form.AddClaimFolderHierarchyForm"/>
+        <form-bean name="validateCoverageForm" type="com.silvermoongroup.fsa.web.claimmanagement.form.ValidateCoverageForm"/>
+
+      <!-- Enumeration -->
+      <form-bean name="enumerationTypesForm" type="com.silvermoongroup.fsa.web.enumeration.EnumerationTypesForm"/>
+      <form-bean name="addEnumerationForm" type="com.silvermoongroup.fsa.web.enumeration.AddEnumerationForm"/>
+      <form-bean name="updateEnumerationForm" type="com.silvermoongroup.fsa.web.enumeration.UpdateEnumerationForm"/>
+      <form-bean name="viewEnumerationsForm" type="com.silvermoongroup.fsa.web.enumeration.ViewEnumerationsForm"/>
+
+    </form-beans>
+
+    <!-- ================================================================ -->
+    <!-- Global Exceptions -->
+    <!-- ================================================================ -->
+    <global-exceptions>
+        <exception type="java.lang.Exception" key="label.error.general"
+                   handler="com.silvermoongroup.fsa.web.common.action.ActionExceptionHandler"/>
+    </global-exceptions>
+
+    <!-- ================================================================ -->
+    <!-- Global Forwards -->
+    <!-- ================================================================ -->
+    <global-forwards>
+
+        <forward name="home" path="/secure/user/dashboard.do" redirect="true"/>
+
+        <!-- Party global forwards -->
+        <forward name="findParty" path="/secure/partyAction.do?method=.findParty" redirect="true"/>
+        <forward name="displayPartyFromExternal" path="/secure/partyAction.do?method=.displayPartyFromExternal"
+                 redirect="false"/>
+        <forward name="addRolePlayerFromExternal" path="/secure/partyAction.do?method=.addRolePlayerFromExternal"
+                 redirect="false"/>
+        <forward name="addRolePlayerFromAgreement" path="/secure/party/findParty.do?method=.addRolePlayerFromAgreement"
+                 redirect="false"/>
+
+        <!-- The standard find agreement GUI (redirected) -->
+        <forward name="findAgreement" path="/secure/agreement/find.do" redirect="true"/>
+
+        <forward name="financialTransaction" path="/secure/ftx/financialtransaction.do" redirect="true"/>
+
+        <forward name="request" path="/secure/request.do"/>
+
+        <forward name="findProduct" path="/secure/product/find.do" redirect="true"/>
+
+    </global-forwards>
+
+    <!-- ================================================================ -->
+    <!-- Action Mappings -->
+    <!-- ================================================================ -->
+    <action-mappings>
+
+        <!-- ============== Login, logout, home and preferences =============== -->
+
+        <action path="/login" type="com.silvermoongroup.fsa.web.security.action.LoginAction" name="loginForm"
+                scope="request" parameter="method">
+            <forward name="refresh" path="/login.do?method=.defaultExecute" redirect="false"/>
+            <forward name="success" path="/login.jsp" redirect="false"/>
+        </action>
+
+        <action path="/logout" type="com.silvermoongroup.fsa.web.security.action.LogoutAction" parameter="method"/>
+
+        <action path="/secure/user/dashboard" type="com.silvermoongroup.fsa.web.user.DashboardAction"
+                parameter="method" input="input" name="dashboardForm" validate="false" scope="request">
+            <forward name="input" path=".dashboard" redirect="false"/>
+        </action>
+
+        <action path="/secure/help" type="com.silvermoongroup.fsa.web.common.action.HelpAction" parameter="method">
+            <forward name="input" path=".about" redirect="false"/>
+        </action>
+
+        <action path="/secure/user/preferences" type="com.silvermoongroup.fsa.web.user.PreferencesAction"
+                name="userPreferencesForm" scope="request" input="input"
+                parameter="method" validate="true">
+            <forward name="input" path=".userpreferences" redirect="false"/>
+        </action>
+
+
+        <!-- ===================== Agreement functionality ==================== -->
+
+        <action path="/secure/agreement/find" type="com.silvermoongroup.fsa.web.agreement.action.FindAgreementAction"
+                name="findAgreementForm" parameter="method" scope="request" validate="true" input="input">
+            <forward name="input" path=".findAgreement" redirect="false"/>
+            <forward name="findAndDisplay" path="/secure/agreement/find.do?method=.findAndDisplay" redirect="true"/>
+            <forward name="agreementUI" path="/secure/agreementversion/tla.do" redirect="true"/>
+        </action>
+
+        <action path="/secure/agreementversion/tla" type="com.silvermoongroup.fsa.web.agreementandrequest.action.AgreementViewAction"
+                name="agreementViewForm" scope="request"
+                input="input" parameter="method" validate="false">
+            <forward name="input" path=".agreementView" redirect="false"/>
+            <forward name="view" path=".agreementView" redirect="true"/>
+            <forward name="account" path="/secure/account.do" redirect="false"/>
+            <forward name="fund" path="/secure/fund.do" redirect="false"/>
+            <forward name="agreementGUI" path="/secure/agreementversion/tla.do" redirect="false"/>
+            <forward name="selectCategoryUI" path="/secure/agreement/role/category/select.do" redirect="false"/>
+            <forward name="moneyProvision" path="/secure/ftx/moneyprovision.do" redirect="false"/>
+            <forward name="moneySchedulerUI" path="/secure/moneyscheduler.do" redirect="false"/>
+            <forward name="roleProperties" path="/secure/agreement/role/properties.do" redirect="false"/>
+            <forward name="manufacturedItemUI" path="/secure/agreement/role/manufactureditem.do" redirect="false"/>
+            <forward name="productUI" path="/secure/product.do"/>
+            <forward name="selectComponentRequest" path="/secure/crequest.do"/>
+        </action>
+
+        <action path="/secure/request/tla" type="com.silvermoongroup.fsa.web.agreementandrequest.action.AgreementAction"
+                name="agreementViewForm" scope="request"
+                input="input" parameter="method" validate="false">
+            <forward name="input" path=".agreementView" redirect="false"/>
+            <forward name="view" path=".agreementView" redirect="true"/>
+            <forward name="account" path="/secure/account.do" redirect="false"/>
+            <forward name="fund" path="/secure/fund.do" redirect="false"/>
+            <forward name="agreementGUI" path="/secure/agreementversion/tla.do" redirect="false"/>
+            <forward name="selectCategoryUI" path="/secure/agreement/role/category/select.do" redirect="false"/>
+            <forward name="moneyProvision" path="/secure/ftx/moneyprovision.do" redirect="false"/>
+            <forward name="moneySchedulerUI" path="/secure/moneyscheduler.do" redirect="false"/>
+            <forward name="linkFundUI" path="/secure/agreement/role/linkFund.do" redirect="false"/>
+            <forward name="roleProperties" path="/secure/agreement/role/properties.do" redirect="false"/>
+            <forward name="manufacturedItemUI" path="/secure/agreement/role/manufactureditem.do" redirect="false"/>
+            <forward name="productUI" path="/secure/product.do"/>
+            <forward name="selectComponentRequest" path="/secure/crequest.do"/>
+        </action>
+
+        <action path="/secure/agreement/role/properties"
+                type="com.silvermoongroup.fsa.web.agreementandrequest.action.RolePropertiesAction" name="roleViewForm" scope="request"
+                input="input"
+                parameter="method" validate="false">
+            <forward name="input" path=".roleView" redirect="false"/>
+        </action>
+
+        <action path="/secure/agreementstatistics" type="com.silvermoongroup.fsa.web.agreement.action.AgreementStatisticsAction"
+                name="agreementStatisticsForm" scope="request" input="input" parameter="method" validate="true">
+          <forward name="calculateAndDisplay" path="/secure/agreementstatistics.do?method=.calculateAndDisplay"/>
+          <forward name="input" path=".agreementStatistics" redirect="false"/>
+        </action>
+
+        <!-- ===================== Request functionality ====================== -->
+
+        <action path="/secure/request" type="com.silvermoongroup.fsa.web.agreementandrequest.action.RequestViewAction"
+                name="requestViewForm" scope="request"
+                input="input" parameter="method" validate="true">
+            <forward name="input" path=".requestView" redirect="true"/>
+            <forward name="roleProperties" path="/secure/request/role/properties.do" redirect="false"/>
+            <forward name="moneyProvision" path="/secure/ftx/moneyprovision.do" redirect="false"/>
+            <forward name="agreementGUI" path="/secure/agreementversion/tla.do" redirect="false"/>
+            <forward name="selectCategoryUI" path="/secure/request/role/category/select.do" redirect="false"/>
+            <forward name="linkFundUI" path="/secure/request/role/linkFund.do" redirect="false"/>
+            <forward name="manufacturedItemUI" path="/secure/request/role/manufactureditem.do" redirect="false"/>
+        </action>
+
+        <action path="/secure/request/role/properties"
+                type="com.silvermoongroup.fsa.web.agreementandrequest.action.RolePropertiesAction"
+                name="roleViewForm" scope="request" input="input"
+                parameter="method" validate="false">
+            <forward name="input" path=".roleView" redirect="false"/>
+        </action>
+
+        <action path="/secure/request/search" type="com.silvermoongroup.fsa.web.request.RequestSearchAction"
+                name="requestSearchForm" scope="request" input="input"
+                parameter="method" validate="true">
+            <forward name="input" path=".requestSearch" redirect="false"/>
+            <forward name="findAndDisplay" path="/secure/request/search.do?method=.findAndDisplay" redirect="false"/>
+        </action>
+
+        <!-- ================= Component Request functionality ================= -->
+
+        <action path="/secure/crequest" type="com.silvermoongroup.fsa.web.agreementandrequest.action.ComponentRequestViewAction"
+                name="requestViewForm" scope="request"
+                input="input" parameter="method" validate="true">
+            <forward name="input" path=".requestView" redirect="true"/>
+            <forward name="roleProperties" path="/secure/crequest/role/properties.do" redirect="false"/>
+            <forward name="moneyProvision" path="/secure/ftx/moneyprovision.do" redirect="false"/>
+
+            <forward name="agreementGUI" path="/secure/agreementversion/tla.do" redirect="false"/>
+        </action>
+
+        <action path="/secure/crequest/role/properties"
+                type="com.silvermoongroup.fsa.web.agreementandrequest.action.RolePropertiesAction"
+                name="roleViewForm" scope="request" input="input"
+                parameter="method" validate="false">
+            <forward name="input" path=".roleView" redirect="false"/>
+        </action>
+
+        <!-- ===================== Roles of an agreement ===================== -->
+
+        <action path="/secure/agreement/role/category/select"
+                type="com.silvermoongroup.fsa.web.category.action.SelectCategoryAction" name="selectCategoryForm"
+                scope="request"
+                input="input" parameter="method" validate="true">
+            <forward name="input" path=".selectCategory" redirect="false"/>
+        </action>
+
+        <action path="/secure/ftx/moneyprovision"
+                type="com.silvermoongroup.fsa.web.ftx.moneyprovision.MoneyProvisionAction"
+                name="moneyProvisionForm" scope="request" input="input" parameter="method" validate="true">
+            <forward name="input" path=".moneyProvisionParticular" redirect="false"/>
+            <forward name="accountBasedMoneyProvision" path=".moneyProvisionAccount" redirect="false"/>
+            <forward name="particularMoneyProvision" path=".moneyProvisionParticular" redirect="false"/>
+            <forward name="redirect" path="/secure/ftx/moneyprovision.do" redirect="false"/>
+        </action>
+
+        <action path="/secure/agreement/role/manufactureditem"
+                type="com.silvermoongroup.fsa.web.physicalobject.action.ManufacturedItemAction"
+                name="manufacturedItemForm" scope="request" input="input" parameter="method" validate="true">
+            <forward name="input" path=".manufacturedItem" redirect="false"/>
+        </action>
+
+        <action path="/secure/agreement/role/linkFund" type="com.silvermoongroup.fsa.web.fund.action.LinkFundAction"
+                name="linkFundForm" scope="request" input="input" parameter="method" validate="false">
+            <forward name="input" path=".linkFund" redirect="false"/>
+            <forward name="searchResults" path="/secure/agreement/role/linkFund.do?method=.displaySearchResults"/>
+        </action>
+        
+        <!-- ===================== Roles of an request ===================== -->
+
+        <action path="/secure/request/role/category/select"
+                type="com.silvermoongroup.fsa.web.category.action.SelectCategoryAction" name="selectCategoryForm"
+                scope="request"
+                input="input" parameter="method" validate="true">
+            <forward name="input" path=".selectCategory" redirect="false"/>
+        </action>
+
+        <action path="/secure/request/role/manufactureditem"
+                type="com.silvermoongroup.fsa.web.physicalobject.action.ManufacturedItemAction"
+                name="manufacturedItemForm" scope="request" input="input" parameter="method" validate="true">
+            <forward name="input" path=".manufacturedItem" redirect="false"/>
+        </action>
+
+        <action path="/secure/request/role/linkFund" type="com.silvermoongroup.fsa.web.fund.action.LinkFundAction"
+                name="linkFundForm" scope="request" input="input" parameter="method" validate="false">
+            <forward name="input" path=".linkFund" redirect="false"/>
+            <forward name="searchResults" path="/secure/agreement/role/linkFund.do?method=.displaySearchResults"/>
+        </action>
+
+        <!-- ===================== Product functionality ====================== -->
+
+        <action path="/secure/product" type="com.silvermoongroup.fsa.web.product.ProductAction"
+                name="productForm" parameter="method" scope="request" validate="false" input="input">
+            <forward name="input" path=".product" redirect="false"/>
+        </action>
+
+        <action path="/secure/product/find"
+                type="com.silvermoongroup.fsa.web.product.action.FindMarketableProductsAction"
+                name="findMarketableProductsForm" parameter="method" scope="request" input="input">
+            <forward name="input" path=".findMarketableProducts" redirect="false"/>
+        </action>
+
+        <action path="/secure/product/upload" type="com.silvermoongroup.fsa.web.product.action.UploadProductAction"
+                name="uploadProductForm" parameter="method" scope="request" validate="true" input="input">
+            <forward name="input" path=".uploadProduct" redirect="false"/>
+        </action>
+
+        <action path="/secure/productversion" type="com.silvermoongroup.fsa.web.product.ProductVersionAction"
+                name="productVersionForm" parameter="method" scope="request" validate="false" input="input">
+            <forward name="input" path=".productVersion" redirect="false"/>
+        </action>
+
+        <action path="/secure/product/agreementstate/find"
+                type="com.silvermoongroup.fsa.web.product.FindAgreementStateAction"
+                name="findAgreementStateForm" parameter="method" scope="request" validate="true" input="input">
+            <forward name="input" path=".findAgreementStates" redirect="false"/>
+            <forward name="add" path="/secure/product/agreementstate/add.do" redirect="false"/>
+        </action>
+
+        <action path="/secure/product/agreementstate" type="com.silvermoongroup.fsa.web.product.AgreementStateAction"
+                name="agreementStateForm" parameter="method" scope="request" validate="true" input="input">
+            <forward name="input" path=".agreementState" redirect="false"/>
+            <forward name="find" path="/secure/product/agreementstate/find.do" redirect="false"/>
+        </action>
+
+        <action path="/secure/product/agreementstate/add"
+                type="com.silvermoongroup.fsa.web.product.AddAgreementStateAction"
+                name="addAgreementStateForm" parameter="method" scope="request" validate="true" input="input">
+            <forward name="input" path=".addAgreementState" redirect="false"/>
+            <forward name="find" path="/secure/product/agreementstate/find.do" redirect="false"/>
+        </action>
+
+        <action path="/secure/product/createrequest"
+                type="com.silvermoongroup.fsa.web.product.action.CreateRequestForMarketableProductVersionAction"
+                name="createRequestForMarketableProductVersionForm" parameter="method" scope="request">
+            <forward name="success" path="/secure/request.do"/>
+        </action>
+
+
+        <!-- =============== Fund Management Functionality =============== -->
+
+        <action path="/secure/fund" type="com.silvermoongroup.fsa.web.fund.FundAction"
+                name="fundForm" scope="request" input="input" parameter="method" validate="false">
+            <forward name="input" path=".fund" redirect="false"/>
+        </action>
+
+        <action path="/secure/fund/search" type="com.silvermoongroup.fsa.web.fund.action.SearchFundAction"
+                name="searchFundForm" scope="request" input="input" parameter="method" validate="false">
+            <forward name="input" path=".searchFund" redirect="false"/>
+            <forward name="searchResults" path="/secure/fund/search.do?method=.displaySearchResults"/>
+        </action>
+
+        <action path="/secure/fund/create" type="com.silvermoongroup.fsa.web.fund.action.CreateFundAction"
+                name="createFundForm" scope="request" input="input" parameter="method" validate="true">
+            <forward name="input" path=".createFund" redirect="false"/>
+            <forward name="displayFund" path="/secure/fund/search.do" redirect="false"/>
+        </action>
+
+        <action path="/secure/fund/assetprices/find" type="com.silvermoongroup.fsa.web.fund.FindAssetPricesAction"
+                name="findAssetPricesForm" scope="request" input="input" parameter="method" validate="true">
+            <forward name="input" path=".findAssetPrices" redirect="false"/>
+            <forward name="findAndDisplay" path="/secure/fund/assetprices/find.do?method=.findAndDisplay"
+                     redirect="false"/>
+        </action>
+
+        <!-- =============== Public Holiday Functionality =============== -->
+
+        <action path="/secure/publicholiday"
+                type="com.silvermoongroup.fsa.web.configuration.publicholiday.UpdatePublicHolidayAction"
+                name="updatePublicHolidayForm" scope="request" input="input" parameter="method" validate="true">
+            <forward name="input" path=".updatePublicHoliday" redirect="false"/>
+            <forward name="searchPublicHoliday" path="/secure/publicholiday/search.do" redirect="false"/>
+        </action>
+
+        <action path="/secure/publicholiday/search"
+                type="com.silvermoongroup.fsa.web.configuration.publicholiday.FindPublicHolidayAction"
+                name="findPublicHolidayForm" scope="request" input="input" parameter="method" validate="true">
+            <forward name="input" path=".searchPublicHoliday" redirect="false"/>
+            <forward name="searchResults" path="/secure/publicholiday/search.do?method=.displaySearchResults"/>
+            <forward name="deletePublicHoliday" path="/secure/publicholiday/search.do?method=.deletePublicHoliday"/>
+        </action>
+
+        <action path="/secure/publicholiday/new"
+                type="com.silvermoongroup.fsa.web.configuration.publicholiday.AddPublicHolidayAction"
+                name="addPublicHolidayForm" scope="request" input="input" parameter="method" validate="true">
+            <forward name="input" path=".createPublicHoliday" redirect="false"/>
+            <forward name="searchPublicHoliday" path="/secure/publicholiday/search.do" redirect="false"/>
+        </action>
+
+        <!-- =============== Account Mapping Functionality =============== -->
+        <action path="/secure/account/accountmapping/find"
+                type="com.silvermoongroup.fsa.web.account.accountmapping.FindAccountMappingAction"
+                name="findAccountMappingForm" scope="request" input="input" parameter="method" validate="true">
+            <forward name="input" path=".findAccountMappings" redirect="false"/>
+            <forward name="redirect" path="/secure/account/accountmapping/find.do" redirect="false"/>
+            <forward name="add" path="/secure/account/accountmapping/add.do" redirect="false"/>
+            <forward name="update" path="/secure/account/accountmapping/update.do" redirect="false"/>
+        </action>
+
+        <action path="/secure/account/accountmapping/add"
+                type="com.silvermoongroup.fsa.web.account.accountmapping.AddAccountMappingAction"
+                name="addAccountMappingForm" scope="request" input="input" parameter="method" validate="true">
+            <forward name="input" path=".addAccountMapping" redirect="false"/>
+            <forward name="findAccountMapping" path="/secure/account/accountmapping/find.do" redirect="false"/>
+            <forward name="success" path="/secure/account/accountmapping/find.do?method=.filter" redirect="false"/>
+        </action>
+
+        <action path="/secure/account/accountmapping/update"
+                type="com.silvermoongroup.fsa.web.account.accountmapping.UpdateAccountMappingAction"
+                name="updateAccountMappingForm" scope="request" input="input" parameter="method" validate="true">
+            <forward name="input" path=".updateAccountMapping" redirect="false"/>
+            <forward name="findAccountMapping" path="/secure/account/accountmapping/find.do" redirect="false"/>
+            <forward name="success" path="/secure/account/accountmapping/find.do?method=.filter" redirect="false"/>
+        </action>
+
+        <!-- ====================================== Financial Transaction ====================================== -->
+
+        <action path="/secure/ftx/financialtransaction/find"
+                type="com.silvermoongroup.fsa.web.ftx.FindFinancialTransactionsAction"
+                name="findFinancialTransactionsForm" scope="request" parameter="method" validate="true" input="input">
+            <forward name="input" path=".findFinancialTransactions" redirect="false"/>
+            <forward name="findAndDisplay" path="/secure/ftx/financialtransaction/find.do?method=.findAndDisplay"
+                     redirect="false"/>
+            <forward name="financialTransaction" path="/secure/ftx/financialtransaction.do" redirect="false"/>
+        </action>
+
+
+      <action path="/secure/ftx/financialtransaction"
+                type="com.silvermoongroup.fsa.web.ftx.FinancialTransactionAction"
+                name="financialTransactionForm" scope="request" parameter="method" validate="false">
+            <forward name="payment" path="/secure/ftx/payment.do" redirect="false"/>
+            <forward name="paymentDue" path="/secure/ftx/paymentdue.do" redirect="false"/>
+            <forward name="unitTransaction" path="/secure/ftx/unittransaction.do" redirect="false"/>
+        </action>
+
+      <action path="/secure/ftx/payment"
+                type="com.silvermoongroup.fsa.web.ftx.PaymentAction"
+                name="paymentForm" scope="request" parameter="method" input="input" validate="false">
+            <forward name="input" path=".payment" redirect="false"/>
+        </action>
+
+        <action path="/secure/ftx/paymentdue"
+                type="com.silvermoongroup.fsa.web.ftx.PaymentDueAction"
+                name="paymentDueForm" scope="request" parameter="method" input="input" validate="false">
+            <forward name="input" path=".paymentDue" redirect="false"/>
+        </action>
+
+      <action path="/secure/ftx/unittransaction"
+              type="com.silvermoongroup.fsa.web.ftx.UnitTransactionAction"
+              name="unitTransactionForm" scope="request" parameter="method" input="input"  validate="false">
+            <forward name="input" path=".unitTransaction" redirect="false"/>
+      </action>
+
+        <action path="/secure/moneyscheduler/execute"
+                type="com.silvermoongroup.fsa.web.moneyscheduler.action.ExecuteMoneySchedulerAction"
+                name="executeSchedulerForm" scope="request" input="input" parameter="method" validate="true">
+            <forward name="input" path=".executeScheduler" redirect="false"/>
+            <forward name="moneySchedulerExecution" path="/secure/moneyscheduler/execution.do"/>
+        </action>
+
+        <action path="/secure/trialbalance" type="com.silvermoongroup.fsa.web.ftx.action.TrialBalanceAction"
+                name="trialBalanceForm" scope="request" input="input" parameter="method" validate="true">
+            <forward name="calculateAndDisplay" path="/secure/trialbalance.do?method=.calculateAndDisplay"/>
+            <forward name="input" path=".trialBalance" redirect="false"/>
+        </action>
+
+        <action path="/secure/ageingreport" type="com.silvermoongroup.fsa.web.ftx.action.AgeingReportAction"
+                name="ageingReportForm" scope="request" input="input" parameter="method" validate="true">
+          <forward name="calculateAndDisplay" path="/secure/ageingreport.do?method=.calculateAndDisplay"/>
+          <forward name="input" path=".ageingReport" redirect="false"/>
+        </action>
+
+        <action path="/secure/moneyscheduler/find"
+                type="com.silvermoongroup.fsa.web.moneyscheduler.action.FindMoneySchedulersAction"
+                name="findMoneySchedulersForm" scope="request" input="input" parameter="method" validate="true">
+            <forward name="input" path=".findMoneySchedulers" redirect="false"/>
+            <forward name="findAndDisplay" path="/secure/moneyscheduler/find.do?method=.findAndDisplay"
+                     redirect="false"/>
+            <forward name="moneyScheduler" path="/secure/moneyscheduler.do" redirect="false"/>
+        </action>
+
+        <action path="/secure/moneyscheduler/findmoneyschedulerstoexecute"
+                type="com.silvermoongroup.fsa.web.moneyscheduler.action.FindMoneySchedulersToExecuteAction"
+                name="findMoneySchedulersToExecuteForm" scope="request" input="input" parameter="method"
+                validate="true">
+            <forward name="input" path=".findMoneySchedulersToExecute" redirect="false"/>
+            <forward name="findAndDisplay"
+                     path="/secure/moneyscheduler/findmoneyschedulerstoexecute.do?method=.findAndDisplay"
+                     redirect="false"/>
+        </action>
+
+        <action path="/secure/moneyscheduler"
+                type="com.silvermoongroup.fsa.web.moneyscheduler.action.MoneySchedulerAction"
+                name="moneySchedulerForm" scope="request" input="input" parameter="method" validate="true">
+            <forward name="input" path=".moneyScheduler" redirect="false"/>
+        </action>
+
+        <action path="/secure/moneyscheduler/execution/find"
+                type="com.silvermoongroup.fsa.web.moneyscheduler.execution.FindMoneySchedulerExecutionsAction"
+                name="findMoneySchedulerExecutionsForm" scope="request" input="input" parameter="method"
+                validate="true">
+            <forward name="input" path=".findMoneySchedulerExecutions" redirect="false"/>
+            <forward name="findAndDisplay" path="/secure/moneyscheduler/execution/find.do?method=.findAndDisplay"
+                     redirect="false"/>
+        </action>
+
+        <action path="/secure/moneyscheduler/execution"
+                type="com.silvermoongroup.fsa.web.moneyscheduler.execution.MoneySchedulerExecutionAction"
+                name="moneySchedulerExecutionForm" scope="request" input="input" parameter="method" validate="true">
+            <forward name="input" path=".moneySchedulerExecution" redirect="false"/>
+        </action>
+
+        <action path="/secure/account/find"
+                type="com.silvermoongroup.fsa.web.account.FindAccountsAction"
+                name="findAccountsForm" scope="request" parameter="method" validate="true" input="input">
+            <forward name="input" path=".findAccounts" redirect="false"/>
+            <forward name="findAndDisplay" path="/secure/account/find.do?method=.findAndDisplay" redirect="false"/>
+        </action>
+
+        <action path="/secure/account"
+                type="com.silvermoongroup.fsa.web.account.AccountAction"
+                name="accountForm" scope="request" parameter="method" validate="false">
+            <forward name="monetaryAccount" path="/secure/account/monetaryAccount.do" redirect="false"/>
+            <forward name="assetHoldingAccount" path="/secure/account/assetHoldingAccount.do" redirect="false"/>
+        </action>
+
+        <action path="/secure/account/monetaryAccount"
+                type="com.silvermoongroup.fsa.web.account.MonetaryAccountAction"
+                name="monetaryAccountForm" input="input" scope="request" parameter="method" validate="true">
+            <forward name="input" path=".monetaryAccount" redirect="false"/>
+        </action>
+
+        <action path="/secure/account/assetHoldingAccount"
+                type="com.silvermoongroup.fsa.web.account.AssetHoldingAccountAction"
+                name="assetHoldingAccountForm" input="input" scope="request" parameter="method" validate="true">
+            <forward name="input" path=".assetHoldingAccount" redirect="false"/>
+        </action>
+
+        <action path="/secure/account/accountentry/find"
+                type="com.silvermoongroup.fsa.web.account.FindAccountEntriesAction"
+                name="findAccountEntriesForm" input="input" scope="request" parameter="method" validate="true">
+            <forward name="input" path=".accountEntries" redirect="false"/>
+            <forward name="findAndDisplay" path="/secure/account/accountentry/find.do?method=.findAndDisplay"
+                     redirect="false"/>
+        </action>
+
+        <action path="/secure/account/accountentry"
+                type="com.silvermoongroup.fsa.web.account.AccountEntryAction"
+                name="accountEntryForm" input="input" scope="request" parameter="method" validate="true">
+            <forward name="input" path=".accountEntry" redirect="false"/>
+        </action>
+
+
+        <!-- ====================== Party functionality ======================= -->
+
+        <action path="/secure/partyAction" type="com.silvermoongroup.fsa.web.party.action.PartyAction" name="partyForm"
+                scope="session" input="input" parameter="method"
+                validate="true">
+            <forward name="input" path=".party" redirect="false"/>
+            <forward name="success" path=".party" redirect="false"/>
+            <forward name="search" path=".party" redirect="false"/>
+            <forward name="contact" path=".party" redirect="false"/>
+            <forward name="bank" path=".party" redirect="false"/>
+            <forward name="role" path=".party" redirect="false"/>
+            <forward name="registration" path=".party" redirect="false"/>
+            <!-- Display a party -->
+            <forward name="displayParty" path="/secure/partyAction.do?method=.displayParty" redirect="false"/>
+
+            <!-- Display the search results for a party -->
+            <forward name="findParty" path="/secure/party/findParty.do" redirect="false"/>
+
+        </action>
+
+      <action path="/secure/party/addParty" type="com.silvermoongroup.fsa.web.party.action.AddPartyAction"
+              name="addPartyForm" scope="request" input="input" parameter="method" validate="true">
+        <forward name="input" path=".addParty" redirect="false"/>
+        <forward name="displayGeneralDetails" path="/secure/partyAction.do?method=.displayParty" redirect="false"/>
+        <forward name="findParty" path="/secure/party/findParty.do?method=.addRolePlayerFromAgreement" redirect="false"/>
+        <forward name="dashboard" path="/secure/user/dashboard.do" redirect="false"/> 
+      </action>
+
+      <action path="/secure/party/findParty" type="com.silvermoongroup.fsa.web.party.action.FindPartyAction"
+              name="findPartyForm" scope="request" input="input" parameter="method" validate="true">
+        <forward name="input" path=".findParty" redirect="false"/>
+	    <forward name="displayParty" path="/secure/partyAction.do?method=.displayParty" redirect="false"/>
+	    <forward name="addParty" path="/secure/party/addParty.do" redirect="false"/>
+        <!-- Display the search results for a party -->
+        <forward name="displayPartySearchResults" path="/secure/party/findParty.do?method=.displayPartySearchResults"
+                 redirect="false"/>
+      </action>
+
+        <action path="/secure/party/getPerson"
+                type="com.silvermoongroup.fsa.web.party.action.GetPersonAction"
+                name="getPersonForm" scope="request" input="input" parameter="method" validate="false">
+            <forward name="input" path="/jsp/secure/party/relationships/getPerson.jsp" redirect="false"/>
+            <forward name="search" path="/secure/party/getPerson.do" redirect="false"/>
+        </action>
+
+        <action path="/secure/party/getOrganisation"
+                type="com.silvermoongroup.fsa.web.party.action.GetOrganisationAction"
+                name="getOrganisationForm" scope="request" input="input" parameter="method" validate="false">
+            <forward name="input" path="/jsp/secure/party/relationships/getOrganisation.jsp" redirect="false"/>
+            <forward name="search" path="/secure/party/getOrganisation.do" redirect="false"/>
+        </action>
+
+      <!-- ====================== Enumeration functionality ======================= -->
+      <action path="/secure/enumeration/addEnumeration"
+              type="com.silvermoongroup.fsa.web.enumeration.AddEnumerationAction" name="addEnumerationForm"
+              scope="request" input="input" parameter="method" validate="true">
+        <forward name="input" path=".addEnumeration" redirect="false"/>
+        <forward name="enumerationTypes" path="/secure/enumeration/enumerationTypes.do" redirect="false"/>
+        <forward name="view" path="/secure/enumeration/viewEnumerations.do" redirect="false"/>
+      </action>
+
+      <action path="/secure/enumeration/updateEnumeration"
+              type="com.silvermoongroup.fsa.web.enumeration.UpdateEnumerationAction"
+              name="updateEnumerationForm" scope="request" input="input" parameter="method" validate="true">
+        <forward name="input" path=".updateEnumeration" redirect="false"/>
+        <forward name="enumerationTypes" path="/secure/enumeration/enumerationTypes.do" redirect="false"/>
+        <forward name="view" path="/secure/enumeration/viewEnumerations.do" redirect="false"/>
+      </action>
+
+      <action path="/secure/enumeration/enumerationTypes"
+              type="com.silvermoongroup.fsa.web.enumeration.EnumerationTypesAction"
+              name="enumerationTypesForm" scope="request" input="input" parameter="method" validate="true">
+        <forward name="input" path=".enumerationTypes" redirect="false"/>
+        <forward name="view" path="/secure/enumeration/viewEnumerations.do" redirect="false"/>
+      </action>
+
+      <action path="/secure/enumeration/viewEnumerations"
+              type="com.silvermoongroup.fsa.web.enumeration.ViewEnumerationsAction"
+              name="viewEnumerationsForm" scope="request" input="input" parameter="method" validate="true">
+        <forward name="input" path=".viewEnumerations" redirect="false"/>
+        <forward name="redirect" path="/secure/enumeration/viewEnumerations.do" redirect="false"/>
+        <forward name="add" path="/secure/enumeration/addEnumeration.do" redirect="false"/>
+        <forward name="update" path="/secure/enumeration/updateEnumeration.do" redirect="false"/>
+        <forward name="enumerationTypes" path="/secure/enumeration/enumerationTypes.do" redirect="false"/>
+      </action>
+
+        <!-- ====================== Types functionality ======================= -->
+        <action path="/secure/types/browse" type="com.silvermoongroup.fsa.web.type.action.BrowseTypesAction"
+                parameter="method">
+            <forward name="input" path=".browseTypes" redirect="false"/>
+        </action>
+
+        <!-- ====================== Administration functionality ======================= -->
+        <action path="/secure/configuration/flushCaches"
+                type="com.silvermoongroup.fsa.web.administration.action.FlushCachesAction"
+                parameter="method">
+            <forward name="input" path=".clearCache" redirect="false"/>
+        </action>
+
+        <!-- ====================== Claim functionality ======================= -->
+
+        <action path="/secure/claim/claimfolder/find"
+                type="com.silvermoongroup.fsa.web.claimmanagement.action.FindClaimFolderAction"
+                name="findClaimFolderForm" scope="request" input="input" parameter="method" validate="true">
+            <forward name="input" path=".findClaimFolder" redirect="false"/>
+            <forward name="findAndDisplay" path="/secure/claim/claimfolder/find.do?method=.findAndDisplay"
+                     redirect="false"/>
+        </action>
+
+        <action path="/secure/claim/elementaryclaim/find"
+                type="com.silvermoongroup.fsa.web.claimmanagement.action.FindElementaryClaimAction"
+                name="findElementaryClaimForm" scope="request" input="input" parameter="method" validate="true">
+            <forward name="input" path=".findElementaryClaim" redirect="true"/>
+            <forward name="findAndDisplay" path="/secure/claim/elementaryclaim/find.do?method=.findAndDisplay"
+                     redirect="false"/>
+            <forward name="validateCoverage" path="/secure/claim/elementaryclaim/validate.do"
+                     redirect="false"/>
+        </action>
+
+        <action path="/secure/claim/elementaryclaim/validate"
+                type="com.silvermoongroup.fsa.web.claimmanagement.action.ValidateCoverageAction"
+                name="validateCoverageForm" scope="request" input="input" parameter="method" validate="false">
+            <forward name="input" path=".validateCoverage" redirect="true"/>
+            <forward name="validate" path="/secure/claim/elementaryclaim/validate.do?method=.validate"
+                     redirect="false"/>
+            <forward name="cancel" path="/secure/claim/elementaryclaim/validate.do?method=.cancel"
+                     redirect="false"/>
+            <forward name="return" path="/secure/claim/elementaryclaim/find.do?method=.findAndDisplay"
+                     redirect="true"/>
+        </action>
+
+        <action path="/secure/claim/claimnavigator"
+                type="com.silvermoongroup.fsa.web.claimmanagement.action.ClaimNavigatorAction"
+                name="claimNavigatorForm" scope="request" input="input" parameter="method" validate="false">
+            <forward name="input" path=".claimNavigator" redirect="false"/>
+        </action>
+
+        <action path="/secure/claim/claimnavigator/content"
+                type="com.silvermoongroup.fsa.web.claimmanagement.action.ClaimNavigatorContentAction"
+                name="claimNavigatorContentForm" scope="request" parameter="method" validate="false">
+            <forward name="claimfolder" path="/jsp/secure/claim/navigator/claimFolderContent.jsp" redirect="false"/>
+            <forward name="elementaryclaim" path="/jsp/secure/claim/navigator/elementaryClaimContent.jsp"
+                     redirect="false"/>
+            <forward name="claimoffer" path="/jsp/secure/claim/navigator/claimOfferContent.jsp" redirect="false"/>
+        </action>
+
+        <action path="/secure/claim/claimnavigator/claim/roles"
+                type="com.silvermoongroup.fsa.web.claimmanagement.action.RolesInClaimAction"
+                name="rolesInClaimForm" scope="request" parameter="method" validate="false" input="input">
+            <forward name="input" path="/jsp/secure/claim/navigator/rolesInClaim.jsp"/>
+        </action>
+
+        <action path="/secure/claim/claimnavigator/claimoffer/roles"
+                type="com.silvermoongroup.fsa.web.claimmanagement.action.RolesInClaimOfferAction"
+                name="rolesInClaimOfferForm" scope="request" parameter="method" validate="false" input="input">
+            <forward name="input" path="/jsp/secure/claim/navigator/rolesInClaimOffer.jsp"/>
+        </action>
+
+        <action path="/secure/claim/lossevent/add"
+                type="com.silvermoongroup.fsa.web.claimmanagement.action.AddLossEventAction"
+                name="addLossEventForm" scope="request" input="input" parameter="method" validate="true">
+            <forward name="input" path=".addLossEvent" redirect="false"/>
+            <forward name="findAndDisplay" path="/secure/claim/lossevent/find.do?method=.findAndDisplay"
+                     redirect="false"/>
+            <forward name="edit" path="/secure/claim/lossevent/edit.do?method=.edit"
+                    redirect="false"/>
+            <forward name="save" path="/secure/claim/lossevent/edit.do?method=.save"
+                     redirect="false"/>
+        </action>
+
+        <action path="/secure/claim/lossevent/find"
+                type="com.silvermoongroup.fsa.web.claimmanagement.action.FindLossEventAction"
+                name="findLossEventForm" scope="request" input="input" parameter="method" validate="true">
+            <forward name="input" path=".findLossEvent" redirect="false"/>
+            <forward name="findAndDisplay" path="/secure/claim/lossevent/find.do?method=.findAndDisplay"
+                     redirect="false"/>
+            <!--<forward name="createClaimFolder" path="/secure/claim/lossevent/find.do?method=.createClaimFolder"
+                     redirect="false"/>-->
+            <forward name="findClaimFolder" path="/secure/claim/claimfolder/find.do?method=.findAndDisplay"
+                     redirect="false"/>
+            <forward name="addClaimFolderHierarchy" path="/secure/claim/lossevent/addClaimFolderHierarchy.do"
+                     redirect="false"/>
+        </action>
+
+        <action path="/secure/claim/lossevent/addClaimFolderHierarchy"
+                type="com.silvermoongroup.fsa.web.claimmanagement.action.AddClaimFolderHierarchyAction"
+                name="addClaimFolderHierarchyForm" scope="request" input="input" parameter="method" validate="true">
+            <forward name="input" path=".addClaimFolderHierarchy" redirect="false"/>
+            <forward name="submit" path="/secure/claim/lossevent/addClaimFolderHierarchy.do?method=.submit" redirect="false"/>
+            <forward name="return" path="/secure/claim/lossevent/find.do?method=.findAndDisplay" redirect="true"/>
+        </action>
+
+        <action path="/secure/claim/lossevent/edit"
+                type="com.silvermoongroup.fsa.web.claimmanagement.action.EditLossEventAction"
+                name="addLossEventForm" scope="request" input="input" parameter="method" validate="true">
+            <forward name="input" path=".editLossEvent" redirect="false"/>
+            <forward name="findAndDisplay" path="/secure/claim/lossevent/edit.do?method=.edit"
+                redirect="false"/>
+            <forward name="save" path="/secure/claim/lossevent/edit.do?method=.save"
+                 redirect="false"/>
+            <forward name="addRolePlayer" path="/secure/party/findParty.do?method=.addRolePlayerFromExternal"
+                 redirect="false"/>
+            <forward name="edit" path="/secure/claim/lossevent/edit.do?method=.edit"
+                     redirect="false"/>
+        </action>
+
+
+
+    </action-mappings>
+
+    <!-- ================================================================ -->
+    <!-- Controller configuration -->
+    <!-- ================================================================ -->
+    <controller nocache="true" inputForward="true" maxFileSize="10M" contentType="text/html; charset=UTF-8"/>
+
+    <!-- ================================================================ -->
+    <!-- Message resources -->
+    <!-- ================================================================ -->
+    <message-resources parameter="com.silvermoongroup.fsa.web.common.MessageResources" factory="com.silvermoongroup.fsa.web.context.support.ReloadablePropertyMessageResourcesFactory"/>
+
+
+    <!-- ================================================================ -->
+    <!-- Validator plugin -->
+    <!-- ================================================================ -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property property="pathnames" value="/org/apache/struts/validator/validator-rules.xml,
+                                              /WEB-INF/struts-validation.xml"/>
+    </plug-in>
+
+    <!-- ================================================================ -->
+    <!-- Tiles plugin -->
+    <!-- ================================================================ -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin">
+        <set-property property="definitions-config" value="/WEB-INF/tiles-def.xml"/>
+        <set-property property="definitions-debug" value="2"/>
+        <set-property property="definitions-parser-details" value="2"/>
+        <set-property property="definitions-parser-validate" value="true"/>
+    </plug-in>
+
+</struts-config>

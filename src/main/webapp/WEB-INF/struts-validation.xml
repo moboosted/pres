@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE form-validation PUBLIC
+        "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.3.0//EN"
+        "http://jakarta.apache.org/commons/dtds/validator_1_3_0.dtd">
+
+<form-validation>
+  <global>
+    <validator name="validateDate" classname="com.silvermoongroup.fsa.web.struts.CustomValidators" method="validateDate"
+               methodParams="java.lang.Object,
+	                 org.apache.commons.validator.ValidatorAction,
+	                 org.apache.commons.validator.Field,
+	                 org.apache.struts.action.ActionMessages,
+	                 org.apache.commons.validator.Validator,
+	                 javax.servlet.http.HttpServletRequest,
+	                 javax.servlet.ServletContext"
+               msg="errors.date">
+    </validator>
+
+    <validator name="dateBefore" classname="com.silvermoongroup.fsa.web.struts.CustomValidators"
+               method="validateDateBefore"
+               methodParams="java.lang.Object,
+                         org.apache.commons.validator.ValidatorAction,
+                         org.apache.commons.validator.Field,
+                         org.apache.struts.action.ActionMessages,
+                         org.apache.commons.validator.Validator,
+                         javax.servlet.http.HttpServletRequest,
+                         javax.servlet.ServletContext"
+               msg="errors.datebefore">
+    </validator>
+
+    <validator name="currencyCode" classname="com.silvermoongroup.fsa.web.struts.CustomValidators"
+               method="validateCurrencyCode"
+               methodParams="java.lang.Object,
+                         org.apache.commons.validator.ValidatorAction,
+                         org.apache.commons.validator.Field,
+                         org.apache.struts.action.ActionMessages,
+                         org.apache.commons.validator.Validator,
+                         javax.servlet.http.HttpServletRequest,
+                         javax.servlet.ServletContext"
+               msg="errors.currencycode">
+    </validator>
+
+    <validator name="amount" classname="com.silvermoongroup.fsa.web.struts.CustomValidators" method="validateAmount"
+               methodParams="java.lang.Object,
+                         org.apache.commons.validator.ValidatorAction,
+                         org.apache.commons.validator.Field,
+                         org.apache.struts.action.ActionMessages,
+                         org.apache.commons.validator.Validator,
+                         javax.servlet.http.HttpServletRequest,
+                         javax.servlet.ServletContext"
+               msg="errors.amount">
+    </validator>
+
+    <constant>
+      <constant-name>amount</constant-name>
+      <constant-value>^(-)?([0-9])+([|.]?[0-9]{1,2})?$</constant-value>
+    </constant>
+    <constant>
+      <constant-name>percent</constant-name>
+      <constant-value>^([0-9]{1,3}){1,1}([|.]?[0-9]{1,2})?$</constant-value>
+    </constant>
+    <constant>
+      <constant-name>alphaNumeric</constant-name>
+      <constant-value>[a-z][A-Z]</constant-value>
+    </constant>
+  </global>
+
+  <formset>
+
+    <form name="updateAccountMappingForm">
+      <field property="companyCode" depends="required">
+        <arg key="account.accountmapping.companycode"/>
+      </field>
+      <field property="currencyCode" depends="required">
+        <arg key="account.accountmapping.currency"/>
+      </field>
+      <field property="accountId" depends="required">
+        <arg key="account.accountmapping.accountid"/>
+      </field>
+      <field property="financialTransactionTypeId" depends="required">
+        <arg key="account.accountmapping.financialtransactiontype"/>
+      </field>
+    </form>
+
+    <form name="addAccountMappingForm">
+      <field property="companyCode" depends="required">
+        <arg key="account.accountmapping.companycode"/>
+      </field>
+      <field property="currencyCode" depends="required">
+        <arg key="account.accountmapping.currency"/>
+      </field>
+      <field property="accountId" depends="required">
+        <arg key="account.accountmapping.accountid"/>
+      </field>
+      <field property="financialTransactionTypeId" depends="required">
+        <arg key="account.accountmapping.financialtransactiontype"/>
+      </field>
+    </form>
+
+    <form name="partyForm">
+      <field property="nameStartDate" depends="validateDate">
+        <arg key="page.party.generalparty.label.namestartdate"/>
+      </field>
+      <field property="txtDateOfDeath" depends="validateDate">
+        <arg key="page.party.generalparty.label.dateofdeath"/>
+      </field>
+      <field property="nameEndDate" depends="validateDate">
+        <arg key="page.party.generalparty.label.nameenddate"/>
+      </field>
+    </form>
+
+    <form name="requestViewForm">
+      <field property="effectiveDate" depends="required,validateDate">
+        <arg key="page.request.label.requesteddate"/>
+      </field>
+    </form>
+
+    <form name="requestSearchForm">
+      <field property="requestStartDate" depends="validateDate,dateBefore">
+        <arg key="spf.request.startdate.fq"/>
+        <arg key="spf.request.enddate.fq"/>
+        <var>
+          <var-name>secondProperty</var-name>
+          <var-value>requestEndDate</var-value>
+        </var>
+      </field>
+      <field property="requestEndDate" depends="validateDate">
+        <arg key="spf.request.enddate.fq"/>
+      </field>
+    </form>
+
+    <form name="findAgreementForm">
+      <field property="agreementId" depends="long">
+        <arg key="label.id"/>
+      </field>
+      <field property="externalReference">
+        <arg key="page.findagreement.agreementnumber"/>
+      </field>
+    </form>
+
+    <form name="agreementStatisticsForm">
+      <field property="dateFrom" depends="required,validateDate,dateBefore">
+        <arg key="page.agreementstatistics.label.datefrom"/>
+        <arg key="page.agreementstatistics.label.dateto"/>
+        <var>
+          <var-name>secondProperty</var-name>
+          <var-value>dateTo</var-value>
+        </var>
+      </field>
+      <field property="dateTo" depends="required,validateDate">
+        <arg key="page.trialbalance.label.dateto"/>
+      </field>
+      <field property="companyCode" depends="required">
+        <arg key="page.agreementstatistics.label.companycode"/>
+      </field>
+    </form>
+
+    <form name="createFundForm">
+      <field property="name" depends="required">
+        <arg key="ftx.fund.name"/>
+      </field>
+      <field property="currencyCode" depends="required">
+        <arg key="ftx.fund.currencycode"/>
+      </field>
+      <field property="companyCode" depends="required">
+        <arg key="ftx.fund.companycode"/>
+      </field>
+      <field property="startDate" depends="required,validateDate,dateBefore">
+        <arg key="ftx.fund.startdate"/>
+          <arg key="ftx.fund.enddate"/>
+          <var>
+              <var-name>secondProperty</var-name>
+              <var-value>endDate</var-value>
+          </var>
+      </field>
+        <field property="endDate" depends="required,validateDate">
+            <arg key="ftx.fund.enddate"/>
+        </field>
+    </form>
+
+    <form name="findAssetPricesForm">
+
+      <field property="effectiveOn" depends="validwhen,validateDate">
+        <arg key="account.assetprice.effectivedate"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((dateOption == 'on') and (*this* != null)) or (dateOption != 'on'))</var-value>
+        </var>
+      </field>
+      <field property="effectiveFrom" depends="validwhen,validateDate,dateBefore">
+        <arg key="account.assetprice.startdate"/>
+        <arg key="account.assetprice.enddate"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((dateOption == 'between') and (*this* != null)) or (dateOption != 'between'))</var-value>
+        </var>
+        <var>
+          <var-name>secondProperty</var-name>
+          <var-value>effectiveTo</var-value>
+        </var>
+      </field>
+      <field property="effectiveTo" depends="validwhen,validateDate">
+        <arg key="account.assetprice.enddate"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((dateOption == 'between') and (*this* != null)) or (dateOption != 'between'))</var-value>
+        </var>
+      </field>
+    </form>
+
+    <form name="manufacturedItemForm">
+      <field property="startDate" depends="required,validateDate">
+        <arg key="page.physicalobject.shared.label.startdate"/>
+      </field>
+      <field property="endDate" depends="validateDate">
+        <arg key="page.physicalobject.shared.label.enddate"/>
+      </field>
+      <field property="name" depends="required">
+        <arg key="page.physicalobject.shared.label.name"/>
+      </field>
+      <field property="value" depends="required,amount">
+        <arg key="page.physicalobject.shared.label.value"/>
+      </field>
+      <field property="currencyCode" depends="required,currencyCode">
+        <arg key="page.physicalobject.shared.label.currencycode"/>
+      </field>
+    </form>
+
+    <form name="findFinancialTransactionsForm">
+
+      <field property="financialTransactionId" depends="long">
+        <arg key="label.id"/>
+      </field>
+      <field property="amount" depends="amount">
+        <arg key="ftx.financialtransaction.amount"/>
+      </field>
+      <field property="minimumAmount" depends="amount">
+        <arg key="ftx.financialtransaction.amount"/>
+      </field>
+      <field property="maximumAmount" depends="amount">
+        <arg key="ftx.financialtransaction.amount"/>
+      </field>
+
+      <field property="postedDate" depends="validwhen,validateDate">
+        <arg key="ftx.financialtransaction.posteddate"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((postedDateOption == 'on') and (*this* != null)) or (postedDateOption != 'on'))</var-value>
+        </var>
+      </field>
+      <field property="postedDateFrom" depends="validwhen,validateDate,dateBefore">
+        <arg key="page.findfinancialtransactions.label.posteddatestart"/>
+        <arg key="page.findfinancialtransactions.label.posteddateend"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((postedDateOption == 'between') and (*this* != null)) or (postedDateOption != 'between'))</var-value>
+        </var>
+        <var>
+          <var-name>secondProperty</var-name>
+          <var-value>postedDateTo</var-value>
+        </var>
+      </field>
+      <field property="postedDateTo" depends="validwhen,validateDate">
+        <arg key="page.findfinancialtransactions.label.posteddateend"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((postedDateOption == 'between') and (*this* != null)) or (postedDateOption != 'between'))</var-value>
+        </var>
+      </field>
+    </form>
+
+    <form name="executeSchedulerForm">
+      <field property="schedulerTypeId" depends="validwhen">
+        <arg key="page.executemoneyscheduler.schedulertype"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((executionOption == 'agreement') and (*this* != null)) or (executionOption != 'agreement'))</var-value>
+        </var>
+      </field>
+      <field property="agreementNumber" depends="validwhen">
+        <arg key="page.executemoneyscheduler.agreementnumber"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((executionOption == 'agreement') and (*this* != null)) or (executionOption != 'agreement'))</var-value>
+        </var>
+      </field>
+      <field property="agreementKindId" depends="validwhen">
+        <arg key="page.executemoneyscheduler.agreementkind"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((executionOption == 'agreement') and (*this* != null)) or (executionOption != 'agreement'))</var-value>
+        </var>
+      </field>
+      <field property="moneySchedulerObjectReference" depends="validwhen">
+        <arg key="common.type.Money Scheduler"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((executionOption == 'objectreference') and (*this* != null)) or (executionOption != 'objectreference'))</var-value>
+        </var>
+      </field>
+      <field property="executionDate" depends="required,validateDate">
+        <arg key="ftx.moneyschedulerexecution.requestedexecutiondate"/>
+      </field>
+    </form>
+
+    <form name="findMoneySchedulersForm">
+
+      <!-- last executed date -->
+      <field property="lastExecutedOnDate" depends="validwhen,validateDate">
+        <arg key="page.findmoneyschedulers.label.lastexecuteddateon"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((lastExecutedOption == 'on') and (*this* != null)) or (lastExecutedOption != 'on'))</var-value>
+        </var>
+      </field>
+      <field property="lastExecutedBetweenDateStart" depends="validwhen,validateDate,dateBefore">
+        <arg key="page.findmoneyschedulers.label.lastexecuteddateperiodstart"/>
+        <arg key="page.findmoneyschedulers.label.lastexecuteddateperiodend"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((lastExecutedOption == 'between') and (*this* != null)) or (lastExecutedOption != 'between'))</var-value>
+        </var>
+        <var>
+          <var-name>secondProperty</var-name>
+          <var-value>lastExecutedBetweenDateEnd</var-value>
+        </var>
+      </field>
+      <field property="lastExecutedBetweenDateEnd" depends="validwhen,validateDate">
+        <arg key="page.findmoneyschedulers.label.lastexecuteddateperiodend"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((lastExecutedOption == 'between') and (*this* != null)) or (lastExecutedOption != 'between'))</var-value>
+        </var>
+      </field>
+
+      <!-- next executed date -->
+      <field property="nextExecutionOnDate" depends="validwhen,validateDate">
+        <arg key="page.findmoneyschedulers.label.nextexecutiondateon"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((nextExecutionOption == 'on') and (*this* != null)) or (nextExecutionOption != 'on'))</var-value>
+        </var>
+      </field>
+      <field property="nextExecutionBetweenDateStart" depends="validwhen,validateDate,dateBefore">
+        <arg key="page.findmoneyschedulers.label.nextexecutiondateperiodstart"/>
+        <arg key="page.findmoneyschedulers.label.nextexecutiondateperiodend"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((nextExecutionOption == 'between') and (*this* != null)) or (nextExecutionOption != 'between'))</var-value>
+        </var>
+        <var>
+          <var-name>secondProperty</var-name>
+          <var-value>nextExecutionBetweenDateEnd</var-value>
+        </var>
+      </field>
+      <field property="nextExecutionBetweenDateEnd" depends="validwhen,validateDate">
+        <arg key="page.findmoneyschedulers.label.nextexecutiondateperiodend"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((nextExecutionOption == 'between') and (*this* != null)) or (nextExecutionOption != 'between'))</var-value>
+        </var>
+      </field>
+
+    </form>
+
+    <form name="findMoneySchedulersToExecuteForm">
+      <field property="nextRunDate" depends="required,validateDate">
+        <arg key="ftx.moneyscheduler.nextrundate"/>
+      </field>
+    </form>
+
+    <form name="findMoneySchedulerExecutionsForm">
+
+      <field property="moneySchedulerExecutionId" depends="long" >
+        <arg key="label.id"/>
+      </field>
+
+      <field property="moneySchedulerObjectReference" depends="validwhen">
+        <arg key="common.type.Money Scheduler"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((moneySchedulerOption == 'specific') and (*this* != null)) or (moneySchedulerOption != 'specific'))</var-value>
+        </var>
+      </field>
+
+      <!-- requested execution date -->
+      <field property="requestedExecutionOnDate" depends="validwhen,validateDate">
+        <arg key="page.findmoneyschedulerexecutions.label.requestedexecutiondateon"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((requestedExecutionDateOption == 'on') and (*this* != null)) or (requestedExecutionDateOption != 'on'))</var-value>
+        </var>
+      </field>
+      <field property="requestedExecutionBetweenDateStart" depends="validwhen,validateDate,dateBefore">
+        <arg key="page.findmoneyschedulerexecutions.label.requestedexecutiondateperiodstart"/>
+        <arg key="page.findmoneyschedulerexecutions.label.requestedexecutiondateperiodend"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((requestedExecutionDateOption == 'between') and (*this* != null)) or (requestedExecutionDateOption != 'between'))</var-value>
+        </var>
+        <var>
+          <var-name>secondProperty</var-name>
+          <var-value>requestedExecutionBetweenDateEnd</var-value>
+        </var>
+      </field>
+      <field property="requestedExecutionBetweenDateEnd" depends="validwhen,validateDate">
+        <arg key="page.findmoneyschedulerexecutions.label.requestedexecutiondateperiodend"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((requestedExecutionDateOption == 'between') and (*this* != null)) or (requestedExecutionDateOption != 'between'))</var-value>
+        </var>
+      </field>
+
+      <!-- execution started -->
+      <field property="executionStartedOnDate" depends="validwhen,validateDate">
+        <arg key="page.findmoneyschedulerexecutions.label.executionstarteddateon"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((executionStartedDateOption == 'on') and (*this* != null)) or (executionStartedDateOption != 'on'))</var-value>
+        </var>
+      </field>
+      <field property="executionStartedBetweenDateStart" depends="validwhen,validateDate,dateBefore">
+        <arg key="page.findmoneyschedulerexecutions.label.executionstarteddateperiodstart"/>
+        <arg key="page.findmoneyschedulerexecutions.label.executionstarteddateperiodend"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((executionStartedDateOption == 'between') and (*this* != null)) or (executionStartedDateOption != 'between'))</var-value>
+        </var>
+        <var>
+          <var-name>secondProperty</var-name>
+          <var-value>executionStartedBetweenDateEnd</var-value>
+        </var>
+      </field>
+      <field property="executionStartedBetweenDateEnd" depends="validwhen,validateDate">
+        <arg key="page.findmoneyschedulerexecutions.label.executionstarteddateperiodend"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((executionStartedDateOption == 'between') and (*this* != null)) or (executionStartedDateOption != 'between'))</var-value>
+        </var>
+      </field>
+
+    </form>
+
+    <form name="findAccountsForm">
+
+      <!-- Opened on date -->
+      <field property="openedOnDate" depends="validwhen,validateDate">
+        <arg key="account.account.openingdate"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((openedDateOption == 'on') and (*this* != null)) or (openedDateOption != 'on'))</var-value>
+        </var>
+      </field>
+      <field property="openedBetweenDateStart" depends="validwhen,validateDate,dateBefore">
+        <arg key="page.findaccounts.label.openeddateperiodstart"/>
+        <arg key="page.findaccounts.label.openeddateperiodend"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((openedDateOption == 'between') and (*this* != null)) or (openedDateOption != 'between'))</var-value>
+        </var>
+        <var>
+          <var-name>secondProperty</var-name>
+          <var-value>openedBetweenDateEnd</var-value>
+        </var>
+      </field>
+      <field property="openedBetweenDateEnd" depends="validwhen,validateDate">
+        <arg key="page.findaccounts.label.openeddateperiodend"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((openedDateOption == 'between') and (*this* != null)) or (openedDateOption != 'between'))</var-value>
+        </var>
+      </field>
+
+    </form>
+
+    <form name="findAccountEntriesForm">
+
+      <!-- posted date -->
+      <field property="postedDateOn" depends="validwhen,validateDate">
+        <arg key="page.findaccountentries.label.posteddateon"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((postedDateOption == 'on') and (*this* != null)) or (postedDateOption != 'on'))</var-value>
+        </var>
+      </field>
+      <field property="postedDateBetweenStart" depends="validwhen,validateDate,dateBefore">
+        <arg key="page.findaccountentries.label.posteddateperiodstart"/>
+        <arg key="page.findaccountentries.label.posteddateperiodend"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((postedDateOption == 'between') and (*this* != null)) or (postedDateOption != 'between'))</var-value>
+        </var>
+        <var>
+          <var-name>secondProperty</var-name>
+          <var-value>postedDateBetweenEnd</var-value>
+        </var>
+      </field>
+      <field property="postedDateBetweenEnd" depends="validwhen,validateDate">
+        <arg key="page.findaccountentries.label.posteddateperiodend"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((postedDateOption == 'between') and (*this* != null)) or (postedDateOption != 'between'))</var-value>
+        </var>
+      </field>
+
+      <!-- value date -->
+      <field property="valueDateOn" depends="validwhen,validateDate">
+        <arg key="page.findaccountentries.label.valuedateon"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((valueDateOption == 'on') and (*this* != null)) or (valueDateOption != 'on'))</var-value>
+        </var>
+      </field>
+      <field property="valueDateBetweenStart" depends="validwhen,validateDate,dateBefore">
+        <arg key="page.findaccountentries.label.valuedateperiodstart"/>
+        <arg key="page.findaccountentries.label.valuedateperiodend"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((valueDateOption == 'between') and (*this* != null)) or (valueDateOption != 'between'))</var-value>
+        </var>
+        <var>
+          <var-name>secondProperty</var-name>
+          <var-value>valueDateBetweenEnd</var-value>
+        </var>
+      </field>
+      <field property="valueDateBetweenEnd" depends="validwhen,validateDate">
+        <arg key="page.findaccountentries.label.valuedateperiodend"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((valueDateOption == 'between') and (*this* != null)) or (valueDateOption != 'between'))</var-value>
+        </var>
+      </field>
+
+    </form>
+
+    <form name="moneyProvisionForm">
+      <field property="filterDateFrom" depends="validateDate,dateBefore">
+        <arg key="ftx.moneyprovisionelement.startdate"/>
+        <arg key="ftx.moneyprovisionelement.enddate"/>
+        <var>
+          <var-name>secondProperty</var-name>
+          <var-value>filterDateTo</var-value>
+        </var>
+      </field>
+      <field property="filterDateTo" depends="validateDate">
+        <arg key="ftx.moneyprovisionelement.enddate"/>
+      </field>
+    </form>
+
+    <form name="moneySchedulerForm">
+
+    </form>
+
+    <form name="trialBalanceForm">
+      <field property="dateFrom" depends="required,validateDate,dateBefore">
+        <arg key="page.trialbalance.label.datefrom"/>
+        <arg key="page.trialbalance.label.dateto"/>
+        <var>
+          <var-name>secondProperty</var-name>
+          <var-value>dateTo</var-value>
+        </var>
+      </field>
+      <field property="dateTo" depends="required,validateDate">
+        <arg key="page.trialbalance.label.dateto"/>
+      </field>
+      <field property="companyCode" depends="required">
+        <arg key="page.trialbalance.label.companycode"/>
+      </field>
+    </form>
+
+    <form name="ageingReportForm">
+      <field property="companyCode" depends="required">
+        <arg key="page.ageingreport.label.companycode"/>
+      </field>
+    </form>
+
+    <form name="selectCategoryForm">
+      <field property="selectedCategoryObjectReference" depends="required">
+        <arg key="page.selectcategory.label.categoryselection"/>
+      </field>
+    </form>
+
+    <form name="userPreferencesForm">
+      <field property="numberFormat" depends="required">
+        <arg key="page.userpreferences.numberformat"/>
+      </field>
+    </form>
+
+    <!-- Product -->
+    <form name="addAgreementStateForm">
+      <field property="name" depends="required" >
+        <arg key="spf.agreementstate.name"/>
+      </field>
+      <field property="legallyBinding" depends="required"/>
+      <field property="riskBearing" depends="required" />
+    </form>
+
+    <form name="agreementStateForm">
+      <field property="name" depends="required" >
+        <arg key="spf.agreementstate.name"/>
+      </field>
+      <field property="legallyBinding" depends="required" />
+      <field property="riskBearing" depends="required" />
+    </form>
+
+    <!-- Public holiday -->
+    <form name="findPublicHolidayForm">
+      <field property="dateFrom" depends="required,validateDate,dateBefore">
+        <arg key="label.datefrom"/>
+        <arg key="label.dateto"/>
+        <var>
+          <var-name>secondProperty</var-name>
+          <var-value>dateTo</var-value>
+        </var>
+      </field>
+      <field property="dateTo" depends="required,validateDate" >
+        <arg key="label.dateto"/>
+      </field>
+    </form>
+
+    <form name="addPublicHolidayForm">
+      <field property="date" depends="required,validateDate">
+        <arg key="label.date"/>
+      </field>
+      <field property="description" depends="required" >
+        <arg key="label.description"/>
+      </field>
+    </form>
+
+    <form name="updatePublicHolidayForm">
+      <field property="date" depends="required,validateDate">
+        <arg key="label.date"/>
+      </field>
+      <field property="description" depends="required" >
+        <arg key="label.description"/>
+      </field>
+    </form>
+	
+    <!-- Enumeration -->
+    <form name="addEnumerationForm">
+      <field property="startDate" depends="required,validateDate,dateBefore">
+        <arg key="label.startdate"/>
+        <arg key="label.enddate"/>
+        <var>
+          <var-name>secondProperty</var-name>
+          <var-value>endDate</var-value>
+        </var>
+      </field>
+      <field property="endDate" depends="required,validateDate" >
+        <arg key="label.enddate"/>
+      </field>
+      <field property="name" depends="required" >
+        <arg key="label.name"/>
+      </field>
+    </form>
+    
+    <form name="updateEnumerationForm">
+      <field property="startDate" depends="required,validateDate,dateBefore">
+        <arg key="label.startdate"/>
+        <arg key="label.enddate"/>
+        <var>
+          <var-name>secondProperty</var-name>
+          <var-value>endDate</var-value>
+        </var>
+      </field>
+      <field property="endDate" depends="required,validateDate" >
+        <arg key="label.enddate"/>
+      </field>
+      <field property="name" depends="required" >
+        <arg key="label.name"/>
+      </field>
+    </form>
+
+    <!-- Claim -->
+    <form name="findClaimFolderForm">
+
+      <field property="effectiveOn" depends="validwhen,validateDate">
+        <arg key="label.startdate"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((dateOption == 'on') and (*this* != null)) or (dateOption != 'on'))</var-value>
+        </var>
+      </field>
+      <field property="effectiveFrom" depends="validwhen,validateDate,dateBefore">
+        <arg key="label.startdate"/>
+        <arg key="label.enddate"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((dateOption == 'between') and (*this* != null)) or (dateOption != 'between'))</var-value>
+        </var>
+        <var>
+          <var-name>secondProperty</var-name>
+          <var-value>effectiveTo</var-value>
+        </var>
+      </field>
+      <field property="effectiveTo" depends="validwhen,validateDate">
+        <arg key="label.enddate"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((dateOption == 'between') and (*this* != null)) or (dateOption != 'between'))</var-value>
+        </var>
+      </field>
+    </form>
+
+
+    <form name="findElementaryClaimForm">
+
+      <field property="effectiveOn" depends="validwhen,validateDate">
+        <arg key="label.startdate"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((dateOption == 'on') and (*this* != null)) or (dateOption != 'on'))</var-value>
+        </var>
+      </field>
+      <field property="effectiveFrom" depends="validwhen,validateDate,dateBefore">
+        <arg key="label.startdate"/>
+        <arg key="label.enddate"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((dateOption == 'between') and (*this* != null)) or (dateOption != 'between'))</var-value>
+        </var>
+        <var>
+          <var-name>secondProperty</var-name>
+          <var-value>effectiveTo</var-value>
+        </var>
+      </field>
+      <field property="effectiveTo" depends="validwhen,validateDate">
+        <arg key="label.enddate"/>
+        <var>
+          <var-name>test</var-name>
+          <var-value>(((dateOption == 'between') and (*this* != null)) or (dateOption != 'between'))</var-value>
+        </var>
+      </field>
+    </form>
+
+    <!--TODO get validation working-->
+<!--    <form name="addLossEventForm">
+      <field property="lossEventName" depends="required">
+        <arg key="claim.lossevent.name"/>
+      </field>
+      <field property="lossEventTime" depends="required">
+        <arg key="claim.lossevent.losseventtime"/>
+      </field>
+      <field property="typeId" depends="required">
+        <arg key="label.type"/>
+      </field>
+    </form>-->
+
+    <!-- These exist to prevent warning from being logged, as we don't do any commons-validator logic (yet) -->
+    <form name="findAccountMappingForm"/>
+    <form name="findAgreementStateForm"/>
+    <form name="monetaryAccountForm"/>
+    <form name="moneySchedulerExecutionForm"/>
+
+  </formset>
+</form-validation>
